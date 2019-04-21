@@ -1,0 +1,40 @@
+.form{
+    margin: auto;
+    margin-top: 150px;
+    width:auto;
+    max-width: 400px;
+    height:auto;
+    padding: 10px;
+    text-align: center;
+}
+#error-card{
+    margin-bottom: 10px;
+}
+.alert-danger {
+    color: #f44336;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+}
+.login-card{
+    margin: auto;
+    height: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.user-pass-container{
+    display: flex;
+    flex-direction: column;
+}
+.layer {
+    background-color: rgb(242, 242, 242,0.5);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.spiner{
+    margin: auto;
+    top: 35%;
+}

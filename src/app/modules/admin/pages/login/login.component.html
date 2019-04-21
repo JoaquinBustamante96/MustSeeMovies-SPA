@@ -1,0 +1,39 @@
+<form [formGroup]="loginForm" class="form" (ngSubmit)="onSubmit()" >
+
+    <mat-card *ngIf="validationFail" id="error-card" class="alert-danger">Incorrect User or Password</mat-card>
+
+<mat-card class="login-card">
+
+    <mat-card-title id="title">Sign In</mat-card-title>
+
+  <div class="user-pass-container">
+
+   <mat-form-field appearance="outline" [hideRequiredMarker]="true">
+     <mat-label>User</mat-label>
+     <input matInput formControlName="user">
+     <mat-error *ngIf="isFieldValid('user')">{{errorMessage}}</mat-error>
+   </mat-form-field>
+
+   <mat-form-field appearance="outline" [hideRequiredMarker]="true">
+     <mat-label>Password</mat-label>
+     <input matInput formControlName="password" >  
+     <mat-error *ngIf="isFieldValid('password')">{{errorMessage}}</mat-error>
+   </mat-form-field>
+
+  </div>
+
+<button mat-raised-button color="primary" id="button-login" type="submit">Login</button>
+
+</mat-card>
+</form>
+
+<div *ngIf="loading" class="layer">
+    <mat-spinner  class="spiner"></mat-spinner>
+</div>
+   
+
+
+
+
+
+

@@ -1,0 +1,45 @@
+.article{
+    display: flex;
+    background-color: #424242;
+    margin: 10px auto;
+    max-width: 57vw;
+    min-width: 680px;
+    max-height: 270px;
+    width: 100%;
+}
+.info-text{
+    width: 90%;
+    margin:auto;
+    margin-top: 50px;
+}
+.info-container{
+    width: calc(57vw - 400px);
+    min-width: calc(680px - 400px);
+    height: auto;
+    position: relative;
+    color: rgba(255, 255, 255, 0.5);
+}
+#share-buttons{
+    position: absolute;
+    right: -40px;
+}
+ #share-buttons::ng-deep .sb-group{
+    flex-direction: column;
+}
+.info-text-title{
+    width: 90%;
+    margin:auto;
+    margin-top: 40px;
+    margin-bottom: 10px;
+}
+.more-info{
+    font-size: 14px;
+    cursor: pointer;
+    right: 50px;
+    bottom: 20px;
+    position: absolute;
+    display: flex;
+}
+.more-info:hover{
+    color: white;
+}

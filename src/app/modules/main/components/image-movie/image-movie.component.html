@@ -1,0 +1,15 @@
+<app-intersection-observer id="intersection" 
+(isInView)="onViewChange($event)"
+[options]="options"
+   ></app-intersection-observer>
+<div class=" img-container mat-typography" (click)="onMovieInformation()">
+  <div class="image">
+    <img *ngIf="showImage" [src]="movie.getposterUrl() | safe " alt="image">
+    <div class="overlay"></div>
+  </div>
+  <div class="title">
+    <h2>{{movie.name[0]}}</h2>
+    <p class="mat-body-strong">{{movie.director[0]}}</p>
+    <p class="mat-small">{{movie.country}}, {{movie.getYear()}}</p>
+  </div>
+  </div>

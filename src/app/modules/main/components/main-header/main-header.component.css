@@ -1,0 +1,106 @@
+.cb-slideshow,
+.cb-slideshow:after { 
+  list-style: none;
+}
+.cb-slideshow,
+.cb-slideshow:after,
+.cb-slideshow li span {
+  width: 100%;
+  height: 80vh;
+  top: 56px;
+  left: 0px;
+  z-index: 0; 
+} 
+.cb-slideshow:after {
+  position: absolute;
+  content: '';
+  background-color: rgba(0,0,0,0.5);
+}
+.cb-slideshow li span { 
+  position: absolute;
+  color: transparent;
+  background-size: cover;
+  background-position: 50% 50%;
+  background-repeat: none;
+  color: white;
+  opacity: 0;
+  animation: Animation 18s linear infinite 0s; 
+}
+.cb-slideshow .text{ 
+  z-index: 701;
+  position: absolute;
+  bottom: 43%;
+  left: 20%;
+  width: 350px;
+  text-align: start;
+  opacity: 1;
+  color: #fff;
+}
+.cb-slideshow .text h2{ 
+  font-size: 25px;
+}
+ul{
+  margin:0;
+  margin-bottom: 40px;
+  padding: 0;
+}
+.movie-name{
+  top: 62px;
+  left: 20px;
+  width: 300px;
+  font-size: 14px;
+  position: absolute;
+  opacity: 0;
+  color: rgba(255, 255, 255, 0.5);
+  z-index: 700;
+  animation: Animation 18s linear infinite 0s; 
+}
+
+.cb-slideshow li:nth-child(1) span {
+  background-image: url(assets/images/johnny.jpg);
+}
+.cb-slideshow li:nth-child(2) .movie-name,
+.cb-slideshow li:nth-child(2) span { 
+  animation-delay: 3s; 
+}
+.cb-slideshow li:nth-child(3) .movie-name,
+.cb-slideshow li:nth-child(3) span { 
+  animation-delay: 6s; 
+}
+.cb-slideshow li:nth-child(4) .movie-name,
+.cb-slideshow li:nth-child(4) span { 
+  animation-delay: 9s; 
+}
+.cb-slideshow li:nth-child(5) .movie-name,
+.cb-slideshow li:nth-child(5) span { 
+  animation-delay: 12s; 
+}
+.cb-slideshow li:nth-child(6) .movie-name,
+.cb-slideshow li:nth-child(6) span { 
+  animation-delay: 15s; 
+}
+
+@keyframes Animation { 
+  0% { opacity: 0; animation-timing-function: ease-in; }
+  3% { opacity: 1; animation-timing-function: ease-out; }
+  16% { opacity: 1 }
+  19% { opacity: 0 }
+  100% { opacity: 0 }
+}
+
+@media only screen and (max-width:640px) {
+  .cb-slideshow .text{
+    top: 41%;
+    left: 100px;
+    width: 300px;
+  }
+
+}
+@media only screen and (max-width:450px) {
+  .cb-slideshow .text{
+    top: 41%;
+    left: 25px;
+    width: 290px;
+  }
+}
+

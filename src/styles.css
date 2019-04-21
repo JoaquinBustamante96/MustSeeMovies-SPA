@@ -1,1 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
+
+
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active  {
+    -webkit-box-shadow: 0 0 0 30px white inset;
+}
+.runtime-container .ng5-slider .ng5-slider-pointer{
+    height: 12px !important;
+    width: 12px !important;
+    top:-4px;
+    background-color: #7E57C2;
+ }
+ .runtime-container .ng5-slider .ng5-slider-pointer:after{
+    height: 0px !important;
+    width: 0px !important;
+ }
+ .runtime-container .ng5-slider .ng5-slider-selection {
+    background: #7E57C2 !important; 
+ }

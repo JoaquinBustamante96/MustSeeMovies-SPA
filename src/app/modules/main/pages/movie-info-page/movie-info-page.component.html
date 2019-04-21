@@ -1,0 +1,14 @@
+<app-toolbar class="toolbar">
+</app-toolbar>
+<div *ngIf="show" class="page-container">
+
+    <iframe  id="trailer" allowfullscreen="true" 
+    [src]=" (movie$ | async)?.getYoutubeUrl() | safe"></iframe>
+
+    <ng-container>
+        <app-movie-info *appShowWithin="desktopRange" class="movie-info" [movie]="movie$"></app-movie-info>
+        <app-movie-info-mobile id="movie-mobile" *appShowWithin="mobileRange" [movie]="movie$"></app-movie-info-mobile>
+    </ng-container>
+    <app-gallery-movies (onMovieSelected)="loadMovieInfo($event)" [id]="id.asObservable()"></app-gallery-movies>
+</div>
+<app-progress-spinner *appHideWithDelay="!show; delay:'400'"></app-progress-spinner>

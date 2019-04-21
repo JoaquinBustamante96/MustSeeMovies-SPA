@@ -1,0 +1,12 @@
+<form class="search-container">
+  <mat-icon class="icon-search" matSuffix><i class="material-icons">search</i></mat-icon>
+  <mat-form-field class="input">
+    <input #box type="text" [placeholder]="placeholder" aria-label="Number" matInput [matAutocomplete]="auto"
+      (keyup)="search(box.value,$event.keyCode)">
+    <mat-autocomplete #auto="matAutocomplete">
+      <mat-option *ngFor="let suggestion of suggestions" [value]="suggestion[0]" (click)="search(suggestion[0],13)">
+        {{suggestion[0]}}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+</form>

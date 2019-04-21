@@ -1,0 +1,17 @@
+<mat-toolbar color="primary" class="mat-elevation-z4">
+     <a mat-button id="read-button" (click)="onClick('read')">READ</a>
+      <a mat-button (click)="onClick('create')">CREATE / EDIT</a>
+      <span class="spacer"></span>
+      <button mat-icon-button (click)="logout()" ><i class="material-icons">exit_to_app</i></button>
+</mat-toolbar>
+<div class="parent-container">
+
+   <div @fadeIn *ngIf="isPressed('read') " class="child-container">
+      <app-read (editMovie)="onEditMovie($event)"></app-read>
+   </div>
+
+   <div @fadeIn *ngIf="isPressed('create')" class="child-container">
+      <app-create [updateMovie]="movie" (resetMovie)="onReset($event)"></app-create>
+   </div>
+
+</div>

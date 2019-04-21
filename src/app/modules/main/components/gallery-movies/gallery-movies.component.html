@@ -1,0 +1,6 @@
+<div class="movies-container mat-typography">
+    <h2 class="title">Related films</h2>
+    <ng-container *ngFor="let movie of movies">
+        <app-image-movie [movie]="movie" class="movie" (OnMovieInformation)="onMovieInformation(movie.id)"></app-image-movie>
+    </ng-container>
+</div>

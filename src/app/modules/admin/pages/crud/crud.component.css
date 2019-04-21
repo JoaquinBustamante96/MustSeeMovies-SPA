@@ -1,0 +1,22 @@
+mat-toolbar{
+    height: 40px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+.spacer{
+    flex: 1 1 auto;
+}
+
+#read-button{
+    margin-left: 8vw;
+}
+.child-container{
+    width: 100vw;
+    height: calc(100vh - 40px);
+    overflow-x: hidden;
+}
+.parent-container{
+    display: flex;
+}
+

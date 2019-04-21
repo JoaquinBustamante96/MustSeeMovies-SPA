@@ -1,0 +1,12 @@
+.search-container{
+    height: 50px;
+    text-align: left;
+}
+.input{
+    width: calc(100% - 24px);
+}
+.icon-search{
+    vertical-align: middle;
+    margin: auto 0px;
+    color: grey;
+}

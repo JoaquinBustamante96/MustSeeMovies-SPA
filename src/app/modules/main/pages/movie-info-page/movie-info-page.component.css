@@ -1,0 +1,36 @@
+#trailer{
+    margin: 70px auto 55px auto; 
+    width: 95%;
+    height: 335px;
+    max-width: 650px;
+    border: none;
+}
+.page-container{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.movie-info{
+    margin:auto;
+    margin-bottom: 250px;
+}
+
+@media only screen and (max-width:820px) {
+    #trailer{
+        margin: 80px auto 25px auto; 
+    }
+    #movie-mobile{
+        height: auto;
+        margin-bottom: 35px;
+    }
+    .toolbar{
+        position: fixed;
+        z-index: 801;
+    }
+}
+@media only screen and (max-width:460px) {
+    #trailer{
+        height: 270px;
+        margin: 80px auto 25px auto; 
+    }
+}

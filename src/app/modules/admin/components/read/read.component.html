@@ -1,0 +1,38 @@
+<mat-card class="card">
+
+  <div class="search-container">
+    <app-search-box (searchValue)="onSearch($event)">
+    </app-search-box>
+    <button mat-icon-button (click)="reload()" class="icon-reload">
+      <mat-icon matSuffix><i class="material-icons">cached</i></mat-icon>
+    </button>
+  </div>
+
+  <div class="table-container">
+    <mat-table #table [dataSource]="dataOnPage$" matSort (matSortChange)="sortData($event.active,$event.direction)"
+      aria-label="Elements">
+
+      <ng-container *ngFor="let column of columns" [matColumnDef]="column">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>{{column}}</mat-header-cell>
+        <mat-cell *matCellDef="let row">{{row[column] | truncateTextPipe: 50 }}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="actions">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Actions</mat-header-cell>
+        <mat-cell *matCellDef="let row">
+          <button mat-icon-button color="warn" (click)="openDialog(row.name[0],row.id)"><i
+              class="material-icons">delete</i></button>
+          <button mat-icon-button color="primary" (click)="edit(row)"><i class="material-icons">edit</i></button>
+        </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+  </div>
+
+  <mat-paginator [length]="(totalMovies$ | async)" [pageIndex]="currentPage$.value" [pageSize]="pageSize$.value"
+    [pageSizeOptions]="[25, 50, 100, 75]" (page)="pageEvent($event.pageIndex,$event.pageSize)">
+  </mat-paginator>
+
+</mat-card>

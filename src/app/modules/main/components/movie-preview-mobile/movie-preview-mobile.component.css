@@ -1,0 +1,84 @@
+.card{
+    width: 300px;
+    margin: auto;
+    min-height: 450px;
+    margin-bottom: 20px;
+    color: white;
+}
+#intersection{
+    position: relative;
+    top:250px;
+}
+.image-container{
+    position: relative;
+}
+.image-container,
+.image-container img{
+    min-width: 300px;
+    min-height: 200px;
+}
+.image-container img{
+    width: 100%;
+    height: 100%;
+}
+.overlay{
+    cursor: pointer;
+    position: absolute;
+    background:linear-gradient(to bottom, rgba(0,0,0,0.4) 5%, transparent 80%, transparent 75%, rgba(0,0,0,0.25) 100%);
+    top:0;
+    left: 0;
+    height: calc(100% - 5px);
+    width: 100%; 
+} 
+.title{
+    position: absolute;
+    z-index: 44;
+    top: 10px;
+    left: 20px;
+    width: 90%;
+}
+.title h2{
+    font-size: 22px;
+    margin-bottom: 0px;
+}
+.title p{
+    display: inline;
+    margin-right: 10px;
+}
+.storyline-title{
+    margin-bottom: 10px;
+}
+.info-container{
+    position: relative;
+}
+#share-buttons{
+    position: absolute;
+    top: -8px;
+    right: 5px;
+}
+#share-buttons::ng-deep .sb-group{
+    flex-direction: row;
+}
+.more-info{
+    color: rgba(255, 255, 255, 0.5); 
+    font-size: 14px;
+    cursor: pointer;
+    right: 20px;
+    bottom: 20px;
+    display: flex;
+    position: absolute;
+}
+.more-info:hover{
+    color: white;
+}
+@media only screen and (max-width: 340px) {
+    .card{
+        width:260px;
+    }
+    .image-container,
+    .image-container img{
+        min-width: 250px;
+        min-height: 220px;
+    }
+} 
+

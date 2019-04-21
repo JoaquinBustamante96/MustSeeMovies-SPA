@@ -1,0 +1,111 @@
+<mat-card *ngIf="updateMovie" class="alert-card">Editing Movie: {{ updateMovie.name[0] }}</mat-card>
+<mat-card class="card">
+  <form class="form--container" #formDirective="ngForm" [formGroup]="movieForm" (ngSubmit)="onSubmit(formDirective)">
+    <!-- name Field -->
+    <ng-container formGroupName=movieInfo>
+      <field-chips [fieldValues]="fieldsChip['name']" placeholder="Name" [errorMessage]="errorMessage"
+        (emitControl)="setControl('name',$event)" (emitValues)="addValue('name',$event)"
+        (indexRemove)="removeValue('name',$event)"></field-chips>
+
+      <!-- director Field -->
+      <field-chips [fieldValues]="fieldsChip['director']" placeholder="Director" [errorMessage]="errorMessage"
+        (emitControl)="setControl('director',$event)" (emitValues)="addValue('director',$event)"
+        (indexRemove)="removeValue('director',$event)"></field-chips>
+
+      <div class='select-container'>
+        <!-- country Field -->
+        <div class="row">
+          <mat-form-field class="select-field">
+            <mat-select placeholder="Country" formControlName="country">
+              <mat-option>-- None --</mat-option>
+              <mat-option *ngFor="let country of countries" [value]="country">
+                {{country}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <!-- language Field -->
+          <mat-form-field class="select-field">
+            <mat-select placeholder="Language" formControlName="language">
+              <mat-option>-- None --</mat-option>
+              <mat-option *ngFor="let language of languages" [value]="language">
+                {{language}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <div class="row">
+          <!-- artmovement Field -->
+          <mat-form-field class="select-field">
+            <mat-select placeholder="Artistic Movement" formControlName="artMovement">
+              <mat-option>-- None --</mat-option>
+              <mat-option *ngFor="let artmovement of artisticsMovements" [value]="artmovement">
+                {{artmovement}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field class="select-field">
+            <mat-select placeholder="Genres" formControlName="genre" multiple>
+              <mat-option class="select-genre" *ngFor="let genre of genres" [value]="genre">
+                {{genre}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+      </div>
+
+
+      <!-- action buttons -->
+      <div>
+        <mat-checkbox formControlName="color" >Color</mat-checkbox>
+        <mat-checkbox formControlName="sound" id="sound-checkbox">Sound</mat-checkbox>
+      </div>
+
+      <!-- runtime field -->
+      <mat-form-field class="form-field">
+        <input matInput type="number" onKeyDown="if(this.value.length==5 && event.keyCode!=8) return false;"
+          formControlName="runtime" placeholder="Duration in mins">
+        <mat-error *ngIf="isFieldValid('runtime')">{{errorMessage}}</mat-error>
+      </mat-form-field>
+
+      <!-- releaseDate field -->
+      <mat-form-field class="form-field">
+        <input matInput type="date" formControlName="releaseDate" placeholder="release date">
+        <mat-error *ngIf="isFieldValid('releaseDate')">{{errorMessage}}</mat-error>
+      </mat-form-field>
+
+      <ng-container formGroupName="movieLinks">
+        <!-- trailer field -->
+        <mat-form-field class="form-field">
+          <input matInput formControlName="youtubeId" placeholder="youtube Id">
+        </mat-form-field>
+
+        <!-- imdb field -->
+        <mat-form-field class="form-field">
+          <input matInput formControlName="imdb" placeholder="imdb url">
+        </mat-form-field>
+      </ng-container>
+
+      <!-- storyline field -->
+      <mat-form-field class="form-field">
+        <textarea formControlName="storyline" matInput placeholder="Storyline"></textarea>
+      </mat-form-field>
+
+    </ng-container>
+
+    <div id="file-input">
+      <input type="file" (change)="onFileChange($event.target.files[0])" accept=".png, .jpg, .jpeg">
+      <input type="hidden" formControlName="poster">
+      <mat-error *ngIf="isFieldValid('poster') && !updateMovie">Select an image, Max image size 120kb</mat-error>
+    </div>
+
+    <mat-card-actions class="action--container">
+      <button color="warn" type="button" (click)="resetForm(formDirective)" mat-flat-button> reset </button>
+      <button id="upload" color="primary" mat-flat-button type="submit"> upload </button>
+    </mat-card-actions>
+
+  </form>
+
+</mat-card>

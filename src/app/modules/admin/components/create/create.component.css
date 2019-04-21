@@ -1,0 +1,47 @@
+.create--container{
+    display:flex;
+    flex-direction: column;
+}
+.form-field{
+    margin: auto;
+    width: 95%;
+}
+.card{
+    margin: 10px auto;
+    width: 40%;
+    min-width: 300px;
+}
+.action--container{
+    display: flex;
+    justify-content: flex-end;
+}
+#upload{
+    margin-right: 3%;
+    margin-left: 10px;
+}
+#sound-checkbox{
+    margin-left: 50px;
+}
+#file-input{
+    text-align: center;
+}
+.select-container, .row{
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.alert-card{
+   background-color: #7E57C2;
+   color:white;
+   font-family: Roboto,"Helvetica Neue",sans-serif;
+   min-width: 300px;
+   width: 40%;
+   margin: 5px auto;
+}
+@media only screen and (max-width: 1010px) {
+   .row{
+       width: 200px;
+   }
+} 
+

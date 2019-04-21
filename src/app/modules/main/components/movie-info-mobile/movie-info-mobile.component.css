@@ -1,0 +1,107 @@
+.card{
+    width: 320px;
+    margin:auto;
+    min-height: 450px;
+    color: white;
+}
+.image-container{
+    position: relative;
+}
+.image-container img,
+.image-container{
+    min-width: 352px;
+    min-height: 237px;
+}
+.image-container img{
+    width: 100%;
+    height: 100%;
+}
+.overlay{
+    position: absolute;
+    background:linear-gradient(to bottom, rgba(0,0,0,0.4) 5%, transparent 80%, transparent 75%, rgba(0,0,0,0.25) 100%);
+    top:0;
+    left: 0;
+    height: calc(100% - 5px);
+    width: 100%; 
+} 
+.title{
+    position: absolute;
+    z-index: 44;
+    top: 10px;
+    left: 20px;
+    width: 90%;
+}
+.title h2{
+    font-size: 22px;
+    margin-bottom: 0px;
+}
+.title p{
+    display: inline;
+    margin-right: 10px;
+}
+.option{
+    display: inline-block;
+    margin-right: 12px;
+    margin-bottom: 10px;
+    color: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+}
+.option:hover{
+    color:white;
+    text-decoration: underline;
+}
+#share-buttons{
+    margin-left: 40px;
+}
+.active{
+    color: white;
+    text-decoration: underline;
+}
+.list-details{
+    list-style:none;
+    padding: 0px;
+    margin-top: 0px;
+}
+.list-details h3{
+    display: inline-block;
+    font-size: 16px;
+    margin-bottom: 2px;
+    margin-right: 5px;
+}
+.list-details-type{
+    margin-bottom: 2px;
+    font-weight:500;
+    font-size: 25px;
+}
+#share-buttons::ng-deep .sb-group{
+    flex-direction: row;
+}
+#imdb{
+    display: flex;
+}
+#imdb-link{
+    color: white;
+}
+#imdb-container{
+    width: 50px;
+    margin-right: 7px;
+    margin-top: 2px;
+    background-image: url('assets/images/imdb.png');
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+@media only screen and (max-width: 340px) {
+    .card{
+        width: 275px;
+    }
+    .image-container img,
+    .image-container{
+    min-width: 250px;
+    min-height: 200px;
+}
+#share-buttons{
+    margin-left: 0px;
+}
+
+} 

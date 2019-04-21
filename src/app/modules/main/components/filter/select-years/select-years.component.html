@@ -1,0 +1,30 @@
+<div class="year-container">
+    <div class="title-all-container">
+        <h2>Years</h2>
+        <mat-checkbox (change)="onAllChange($event['checked'])" [labelPosition]="labelPosition">All</mat-checkbox>
+    </div>
+
+    <div class="from-to-container">
+        <div class="from-to">
+            <h3>From</h3>
+            <mat-form-field >
+                <mat-select [formControl]="startYear">
+                    <mat-option *ngFor="let year of years" [value]="year">
+                            {{year}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+
+        <div class="from-to">
+            <h3>To</h3>
+            <mat-form-field>
+                <mat-select [formControl]="endYear">
+                <mat-option *ngFor="let year of years" [value]="year">
+                        {{year}}
+                </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+    </div>
+</div>

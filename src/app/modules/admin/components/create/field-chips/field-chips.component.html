@@ -1,0 +1,25 @@
+
+<mat-form-field  class="form-field">
+  <mat-chip-list
+  [errorStateMatcher]="matcher"
+  [formControl]="chipsCtrl"
+   #chipList>
+    <mat-chip
+      *ngFor="let value of fieldValues"
+      [selectable]="selectable"
+      [removable]="removable"
+      (removed)="remove(value)"
+      class="mat-chip-category">
+      {{value}}
+      <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+    </mat-chip>
+    <input matInput 
+      placeholder="{{placeholder}}"
+      [matChipInputFor]="chipList"
+      [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+      [matChipInputAddOnBlur]="addOnBlur"
+      (matChipInputTokenEnd)="add($event)">
+  </mat-chip-list>
+  <mat-error *ngIf="isFieldValid()">{{errorMessage}}</mat-error>
+
+</mat-form-field>

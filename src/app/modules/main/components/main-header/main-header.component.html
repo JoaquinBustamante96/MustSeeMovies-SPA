@@ -1,0 +1,15 @@
+<ul class="cb-slideshow mat-typography">
+    <li>
+        <span ></span>
+        <h3 class="movie-name">Johnny Got His Gun (1971)</h3>
+    </li>
+
+    <li *ngFor="let imageData of imagesData | keyvalue">
+        <span [ngStyle]="imageData.value.backgroundUrl"></span>
+        <h3 class="movie-name">{{imageData.value.title}}</h3>
+    </li>
+    
+    <div class="text">
+        <h2>A movies recomendation place Discover 1001+ Movies That You Must See Before You Die</h2>
+    </div>
+</ul>

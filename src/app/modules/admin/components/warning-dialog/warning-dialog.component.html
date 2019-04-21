@@ -1,0 +1,7 @@
+<p>
+ Are you sure that you want to delete "{{data.name}}" ?
+</p>
+<div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">No</button>
+    <button mat-button [mat-dialog-close]="data.id" cdkFocusInitial>Yes</button>
+  </div>

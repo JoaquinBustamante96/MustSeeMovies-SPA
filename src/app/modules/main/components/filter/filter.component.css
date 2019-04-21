@@ -1,0 +1,72 @@
+.filter-card{
+    width: 100%;
+    max-width: 55vw;
+    min-width: 610px;
+    height: 200px;
+    margin: auto;
+    position: relative;
+}
+.icon-reload{
+    position: absolute;
+    right: 10px;
+    top: 2px
+}
+.color-container{
+    display: flex;
+    flex-direction: column;
+}
+.filter-container{
+    display: flex;
+    width: 100%;
+    max-width: 700px;
+    justify-content: space-between;
+    margin:auto;
+}
+.runtime-color-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 170px;
+    width: 200px;
+}
+.first-column{
+    width: 170px;
+    display: flex;
+    flex-direction: column;
+}
+::ng-deep .mat-primary .mat-option.mat-selected:not(.mat-option-disabled){
+    color: #7E57C2;
+}
+::ng-deep  .mat-primary .mat-pseudo-checkbox-checked, .mat-primary .mat-pseudo-checkbox-indeterminate{
+    background-color: #7E57C2;
+}
+.submit-button{
+    position: absolute;
+    right: 20px;
+    bottom: -20px;
+}
+@media only screen and (max-width:716px) {
+    .filter-card{
+        min-width: 255px;
+        width: 255px;
+        height: auto;
+    }
+    .fitFilter{
+        height: 80vh;
+        overflow-y: scroll;
+    }
+    .fitSubmit-button{
+    position: fixed;
+    left: calc( 50vw + 50px );
+    bottom: 5%;
+   }
+    .filter-container{
+        flex-direction: column;
+        align-items: center;
+        margin: auto;
+        max-height: 550px;
+    }
+    .genre-container{
+        margin-left: 17px;
+    }
+} 

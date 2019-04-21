@@ -1,0 +1,22 @@
+.from-to-container{
+    width: 200px;
+    display: flex;
+    justify-content: space-between;
+}
+.from-to{
+    width: 75px;
+    text-align: center;
+}
+.from-to h3{
+    margin: 0 0;
+}
+.from-to mat-form-field{
+    width: 75px;
+}
+.title-all-container{
+    display: flex;
+    align-items: center;
+    width: 150px;
+    justify-content: space-around;
+    height: 40px;
+}

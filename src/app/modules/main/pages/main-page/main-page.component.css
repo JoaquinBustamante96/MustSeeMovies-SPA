@@ -1,0 +1,38 @@
+.white-space{
+    width: 200px;
+    height: 100px;
+    margin: auto;
+}
+.search-box{
+    z-index: 9999;
+    position: fixed;
+    top: 0px;
+    right: 50px;
+    width: 170px;
+}
+.filter-show-button{
+    margin-left: -12px; 
+}
+.icon-reload{
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    color: white;
+}
+.content{
+   position: absolute;
+   width: 100vw;
+   top: calc(80vh + 80px);
+}
+.appfilter{
+    margin-bottom: 200px;
+}
+#filter-container{
+    margin-bottom: 30px;
+}
+#noFound{
+    color: white;
+    font-size: 30px;
+    text-align: center;
+}
+

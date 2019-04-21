@@ -1,0 +1,38 @@
+.table-container{
+    height: 70vh;
+    overflow-x: auto;
+    overflow-y: auto;
+}
+.search-container{
+    width: 200px;
+    position: relative;
+}
+.icon-reload{
+   position: absolute;
+   right: -33px;
+   top: 10px;
+}
+.card{
+    margin: 10px auto;
+    width: 80%;
+}
+mat-table{
+    width: 1600px;
+    overflow-y: auto;
+    border-top: 1px solid #c3c3c3;
+}
+mat-paginator{
+   height: auto;
+}
+.layer{
+    background-color: rgba(14, 2, 2, 0.178);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;   
+}
+.spiner{
+    margin: auto;
+    top: 35%;
+}

@@ -1,0 +1,41 @@
+<div *ngIf="movie" class="movie-info-container mat-typography">
+  <div class="title-container">
+    <h2 class="title">{{movie.name[0] | uppercase}}</h2>
+    <h3 id="year">({{movie.getYear()}})</h3>
+  </div>
+  <img [src]="movie.getposterUrl() | safe" alt="image">
+
+  <div class="storyline-container">
+    <h2 id="title">Storyline</h2>
+    <p class="text">
+     {{movie.storyline}}
+    </p>
+  </div>
+  <app-share-movie-buttons id="share-buttons" [movie]="movie"></app-share-movie-buttons>
+  <ul class="list-details">
+    <li>
+      <h3 class="list-details-type">Director:</h3>
+      <h3>{{movie.director[0]}}</h3>
+    </li>
+    <li>
+      <h3 class="list-details-type">Genres: </h3>
+      <h3>{{movie.genre}}</h3>
+    </li>
+    <li>
+      <h3 class="list-details-type">Country: </h3>
+      <h3>{{movie.country}}</h3>
+    </li>
+    <li>
+      <h3 class="list-details-type">Language:</h3>
+      <h3>{{movie.language}}</h3>
+    </li>
+    <li>
+      <h3 class="list-details-type">Release Date:</h3>
+      <h3>{{movie.releaseDate}}</h3>
+    </li>
+    <a id="imdb" style="color: rgba(255, 255, 255, 0.5);" target="_blank" [href]="movie.movieLinks.imdb | safe">
+      <div id="imdb-container"></div>
+      <h3>More info about {{movie.name[0]}} </h3>
+    </a>
+  </ul>
+</div>
