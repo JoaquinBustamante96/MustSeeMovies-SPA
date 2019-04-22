@@ -8,7 +8,7 @@ const routes: Routes = [
   { path:  '' , component: MainPageComponent },
   { path: 'byFilter', component: MainPageComponent},
   { path: 'byName', component: MainPageComponent},
-  { path: `movies${UrisModules.id}`, component: MovieInfoPageComponent },
+  { path: `movie${UrisModules.id}`, component: MovieInfoPageComponent },
 ];
 
 @NgModule({

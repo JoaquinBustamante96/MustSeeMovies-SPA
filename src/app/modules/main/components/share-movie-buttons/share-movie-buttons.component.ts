@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, HostListener } from '@angular/core';
 import { MinimunMovie } from '@app/core/models';
 import { Uris } from '@app/core/uris-api';
+import { UrisModules } from '@app/core/routed-modules-uris';
 
 @Component({
   selector: 'app-share-movie-buttons',
@@ -27,7 +28,7 @@ export class ShareMovieButtonsComponent implements OnInit {
    }
 
   ngOnInit() {
-    this.url = `${Uris.api}:30/movie/${this.movie.id}`;
+    this.url = `https://moviesmustsee.com${UrisModules.movie}/${this.movie.id}`;
     this.title = this.movie.name[0];
     this.description = `${this.movie.name[0]}: ${this.movie.storyline.substring(0,250)}...`;
     this.image = this.movie.getposterUrl();
