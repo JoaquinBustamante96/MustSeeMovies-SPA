@@ -1,6 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { Filter } from '../../filter.model';
-import { HandleMoviesService } from '../../services';
+import { Filter } from '@app/core/models';
+import { HandleMoviesService } from '@app/core/services';
 import { Router } from '@angular/router';
 import { Animations } from '@app/shared/animations';
 import { UrisModules } from '@app/core/routed-modules-uris';

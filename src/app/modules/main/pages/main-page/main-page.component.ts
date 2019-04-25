@@ -1,9 +1,9 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { MinimunMovie } from '@app/core/models';
-import { Filter } from '../../filter.model';
+import { Filter } from '../../../../core/models/filter.model';
 import { Router } from '@angular/router';
 import { Subscription, Observable } from 'rxjs';
-import { HandleMoviesService } from '../../services/handleMoviesService';
+import { HandleMoviesService } from '../../../../core/services/handleMovies.service';
 import { UrisModules } from '@app/core/routed-modules-uris';
 
 @Component({

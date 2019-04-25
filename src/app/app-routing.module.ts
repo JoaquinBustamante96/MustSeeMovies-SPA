@@ -6,6 +6,9 @@ const routes: Routes = [
     path: '', loadChildren: './modules/main/main.module#MainModule'
   },
   {
+    path:'movie/:id',loadChildren:'./modules/info-page/info-page.module#InfoPageModule'
+  },
+  {
     path: 'admin', loadChildren: './modules/admin/admin.module#AdminModule'
   },
   {

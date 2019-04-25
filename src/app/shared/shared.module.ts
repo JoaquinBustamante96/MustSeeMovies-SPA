@@ -18,7 +18,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSortModule } from '@angular/material/sort';
 import { MatRadioModule } from '@angular/material/radio';
-import {MatDialogModule} from '@angular/material/dialog';
+import { MatDialogModule } from '@angular/material/dialog';
 import { Ng5SliderModule } from 'ng5-slider';
 
 import { SafePipe, TruncateTextPipe } from './pipes/index';
@@ -26,14 +26,23 @@ import { SafePipe, TruncateTextPipe } from './pipes/index';
 import { ShareButtonsModule } from '@ngx-share/buttons';
 
 import {
-  SearchBoxSuggestionsComponent, ProgressSpinnerComponent,
-  IntersectionObserverListComponent, MatFormFieldOptionsComponent
-} from './ui/index';
+  SearchBoxSuggestionsComponent,
+  ProgressSpinnerComponent,
+  IntersectionObserverListComponent,
+  MatFormFieldOptionsComponent,
+  SharedButtonsComponent,
+  IntersectionObserverComponent,
+  ShareMovieButtonsComponent,
+  SearchBoxComponent,
+  ToolbarComponent,
+  FilterComponent,
+  SelectRuntimeComponent,
+  SelectYearsComponent,
+  ImageMovieComponent,
+} from './components/index';
 
 import { ShowWithinDirective, OnloadDirective } from './directives/index';
-import { IntersectionObserverComponent } from './ui/intersection-observer/intersection-observer.component';
 import { hideWithDelayDirective } from './directives/hide-with-delay.directive';
-import { SharedButtonsComponent } from './ui/shared-buttons/shared-buttons.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +57,13 @@ import { SharedButtonsComponent } from './ui/shared-buttons/shared-buttons.compo
     IntersectionObserverComponent,
     hideWithDelayDirective,
     SharedButtonsComponent,
+    ShareMovieButtonsComponent,
+    SearchBoxComponent,
+    ToolbarComponent,
+    FilterComponent,
+    SelectRuntimeComponent,
+    SelectYearsComponent,
+    ImageMovieComponent
   ],
   imports: [
     CommonModule,
@@ -107,6 +123,13 @@ import { SharedButtonsComponent } from './ui/shared-buttons/shared-buttons.compo
     MatDialogModule,
     ShareButtonsModule,
     SharedButtonsComponent,
+    ShareMovieButtonsComponent,
+    SearchBoxComponent,
+    ToolbarComponent,
+    FilterComponent,
+    SelectRuntimeComponent,
+    SelectYearsComponent,
+    ImageMovieComponent
   ],
 })
 export class SharedModule { }

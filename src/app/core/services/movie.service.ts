@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
-import { HttpService } from "@app/core/services";
-import { Filter } from '../filter.model';
+import { HttpService } from "@app/core/services/http.service";
+import { Filter } from '../models/filter.model';
 import { MinimunMovie } from '@app/core/models';
 import { Page, Movie } from '@app/core/models';
 import { Observable, Subject } from 'rxjs';

@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, OnDestroy, Output, EventEmitter } from '@angular/core';
 import { MinimunMovie } from '@app/core/models';
-import { MovieService } from '../../services/movie.service';
+import { MovieService } from '@app/core/services';
 import { Subscription, Observable } from 'rxjs';
 import { Router } from '@angular/router';
 import { UrisModules } from '@app/core/routed-modules-uris';
