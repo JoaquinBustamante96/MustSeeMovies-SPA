@@ -20,8 +20,8 @@ export class MovieInfoPageComponent implements OnInit, OnDestroy {
   paramsSubscription: Subscription;
   show: boolean;
   Delay = 3000;
-  mobileRange = [0, 716];
-  desktopRange = [717, 9000];
+  mobileRange = [0, 771];
+  desktopRange = [772, 9000];
 
   constructor(
     private activatedRoute: ActivatedRoute,

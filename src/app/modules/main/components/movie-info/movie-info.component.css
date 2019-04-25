@@ -78,3 +78,9 @@
     background-size: 100%;
     background-repeat: no-repeat;
 }
+  @media only screen and (max-width: 840px) {
+    #share-buttons{
+        position: absolute;
+        right: -10px;
+    }
+}  

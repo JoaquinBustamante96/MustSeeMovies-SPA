@@ -22,7 +22,7 @@
       [class.active]="optionSelected == 'details'"
       (click)="selectOption('details')"
       >Details</h3>
-      <app-share-movie-buttons id="share-buttons" [movie]="movie"></app-share-movie-buttons>
+      <app-share-movie-buttons id="share-buttons" [movie]="movie" [show]="2"></app-share-movie-buttons>
     </div>
     <p *ngIf="optionSelected == 'storyline' " class="mat-body-strong">
       {{movie.storyline}} 

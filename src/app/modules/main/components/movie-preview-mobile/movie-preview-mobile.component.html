@@ -17,7 +17,7 @@
   
   <mat-card-content class="info-container">
       <h3 class="storyline-title">Storyline</h3>
-      <app-share-movie-buttons id="share-buttons" [movie]="movie"></app-share-movie-buttons>
+      <app-share-movie-buttons id="share-buttons" [movie]="movie" [show]="2"></app-share-movie-buttons>
 
     <p class="mat-body-strong">
       {{movie.storyline | truncateTextPipe: 245}}

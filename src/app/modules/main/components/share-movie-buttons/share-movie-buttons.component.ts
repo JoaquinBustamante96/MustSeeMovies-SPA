@@ -11,10 +11,9 @@ import { UrisModules } from '@app/core/routed-modules-uris';
 export class ShareMovieButtonsComponent implements OnInit {
 
   @Input() movie: MinimunMovie;
-
+  @Input() show: string;
   theme = "circles-dark";
-  include = ['pinterest','tumblr','twitter','whatsapp','facebook'];
-  show = "2"
+  include = ['pinterest', 'tumblr', 'twitter', 'whatsapp', 'facebook'];
   size = "-6";
   url: string;
   title: string;
@@ -22,15 +21,13 @@ export class ShareMovieButtonsComponent implements OnInit {
   image: string;
 
   constructor() {
-    if(window.innerWidth>717){
-      this.show="5";
-    }
-   }
+  
+  }
 
   ngOnInit() {
     this.url = `https://moviesmustsee.com${UrisModules.movie}/${this.movie.id}`;
     this.title = this.movie.name[0];
-    this.description = `${this.movie.name[0]}: ${this.movie.storyline.substring(0,250)}...`;
+    this.description = `${this.movie.name[0]}: ${this.movie.storyline.substring(0, 250)}...`;
     this.image = this.movie.getposterUrl();
   }
 

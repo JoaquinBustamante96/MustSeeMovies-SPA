@@ -43,3 +43,8 @@
 .more-info:hover{
     color: white;
 }
+@media only screen and (max-width: 730px) {
+    #share-buttons{
+        right: -20px;
+    }
+} 
