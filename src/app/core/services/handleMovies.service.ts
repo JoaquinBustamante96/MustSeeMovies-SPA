@@ -30,6 +30,7 @@ export class HandleMoviesService {
         }
       }
     );
+    this.initialSearch();
   }
 
   getMovies$(): Observable<Array<MinimunMovie>> {
@@ -69,6 +70,14 @@ export class HandleMoviesService {
 
   isMoviesEmpty(): boolean {
     return this.movies$.value.length == 0;
+  }
+
+  private initialSearch(){
+    this.searchByFilter( {
+      artMovement: "", country: "", genre: [""],
+      language: "", color: "", sound: "", minRuntime: 0,
+      maxRuntime: 600, startYear: "1880", endYear: "2020"
+    });
   }
 
   private compareFilter(filter: Filter) {

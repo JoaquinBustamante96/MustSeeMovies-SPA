@@ -49,6 +49,10 @@
           <h3 class="list-details-type">Release Date:</h3>
           <h3>{{movie.releaseDate}}</h3>
         </li>
+        <li>
+          <h3 class="list-details-type">Duration:</h3>
+          <h3>{{movie.runtime}} min</h3>
+        </li>
         <a id="imdb" style="color: rgba(255, 255, 255, 0.5);" target="_blank" [href]=" movie.movieLinks.imdb | safe">
           <div id="imdb-container"></div>
           <h3 id="imdb-link">More info about {{movie.name[0]}} </h3>

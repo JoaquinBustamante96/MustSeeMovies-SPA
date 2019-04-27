@@ -24,15 +24,6 @@ export class HomePageComponent implements OnInit{
 
   ngOnInit() {
     this.movies$ = this.handleMoviesService.getMovies$();
-
-    if (this.handleMoviesService.isMoviesEmpty()) {
-      this.searchByFilter(
-        {
-          artMovement: "", country: "", genre: [""],
-          language: "", color: "", sound: "", minRuntime: 0,
-          maxRuntime: 600, startYear: "1880", endYear: "2020"
-        });
-    }
   }
 
   onIntersection() {
@@ -52,7 +43,7 @@ export class HomePageComponent implements OnInit{
   }
 
   scrolltop(){
-    window.scrollTo(0,0);
+    window.scrollTo(0,window.innerHeight * 80 / 100);
   }
   
 }
