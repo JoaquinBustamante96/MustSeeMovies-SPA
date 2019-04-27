@@ -1,0 +1,1 @@
+export * from './movie-info/movie-info-page.component';
