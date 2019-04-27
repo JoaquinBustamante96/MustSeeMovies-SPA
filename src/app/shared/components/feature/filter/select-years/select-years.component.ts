@@ -1,13 +1,13 @@
-import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, Input, OnDestroy } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-select-years',
   templateUrl: './select-years.component.html',
   styleUrls: ['./select-years.component.css']
 })
-export class SelectYearsComponent implements OnInit {
+export class SelectYearsComponent implements OnInit, OnDestroy {
   @Input() years: number[];
   @Input() reload$: Observable<any>;
 
@@ -18,12 +18,13 @@ export class SelectYearsComponent implements OnInit {
   startYear: FormControl;
   endYear: FormControl;
   checked = false;
+  subscription: Subscription;
 
   constructor() { }
 
   ngOnInit() {
 
-    this.reload$.subscribe(
+    this.subscription = this.reload$.subscribe(
       () => this.onAllChange(false)
     );
 
@@ -34,6 +35,10 @@ export class SelectYearsComponent implements OnInit {
     this.endYear['name'] = 'endYear';
     this.emitControl.emit(this.startYear);
     this.emitControl.emit(this.endYear);
+  }
+
+  ngOnDestroy(): void {
+   this.subscription.unsubscribe();
   }
 
   onAllChange(checked: boolean) {

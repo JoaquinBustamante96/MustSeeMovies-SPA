@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
-import { MainRoutingModule } from './main-routing.module';
+import { HomeRoutingModule } from './home-routing.module';
 import { SharedModule } from '@app/shared/shared.module';
 
-import { MainPageComponent } from './pages/index';
+import { HomePageComponent } from './pages/index';
 
 import {
   MoviePreviewComponent,
@@ -13,16 +13,16 @@ import { ScrollPositionerService } from './services/scroll-position.service';
 
 @NgModule({
   declarations: [
-    MainPageComponent,
+    HomePageComponent,
     MoviePreviewComponent,
     MoviePreviewMobileComponent,
     MainHeaderComponent,
   ],
   imports: [
     SharedModule,
-    MainRoutingModule,
+    HomeRoutingModule,
   ]
 })
-export class MainModule {
+export class HomeModule {
   constructor(private scrollPositionerService: ScrollPositionerService) { }
 }

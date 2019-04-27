@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MinimunMovie } from '@app/core/models';
 import { Filter } from '../../../../core/models/filter.model';
 import { Router } from '@angular/router';
@@ -7,12 +7,12 @@ import { HandleMoviesService } from '../../../../core/services/handleMovies.serv
 import { UrisModules } from '@app/core/routed-modules-uris';
 
 @Component({
-  selector: 'app-main-page',
-  templateUrl: './main-page.component.html',
-  styleUrls: ['./main-page.component.css'],
+  selector: 'app-home-page',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.css'],
 })
 
-export class MainPageComponent implements OnInit{
+export class HomePageComponent implements OnInit{
 
   movies$: Observable<Array<MinimunMovie>>;
   movieSubscription: Subscription;

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Page, MinimunMovie } from '@app/core/models';
 import { Filter } from '../models/filter.model';
-import { SearchType } from '../../modules/main/searchType.model';
+import { SearchType } from '../../modules/home/searchType.model';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { MovieService } from './movie.service';
 

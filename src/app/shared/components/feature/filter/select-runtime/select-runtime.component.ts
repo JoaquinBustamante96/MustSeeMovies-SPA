@@ -1,14 +1,14 @@
-import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, Input, OnDestroy } from '@angular/core';
 import { Options } from 'ng5-slider';
 import { FormControl } from '@angular/forms';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-select-runtime',
   templateUrl: './select-runtime.component.html',
   styleUrls: ['./select-runtime.component.css']
 })
-export class SelectRuntimeComponent implements OnInit {
+export class SelectRuntimeComponent implements OnInit,OnDestroy {
 
   @Output() emitControl = new EventEmitter<FormControl>();
   @Input() reload$: Observable<any>;
@@ -21,14 +21,15 @@ export class SelectRuntimeComponent implements OnInit {
   labelPosition = 'before';
   options: Options;
   checked = false;
+  subscription: Subscription;
 
   constructor() { }
 
   ngOnInit() {
-    this.reload$.subscribe(
-      ()=>{
-        this.minValue=0;
-        this.maxValue=600;
+    this.subscription = this.reload$.subscribe(
+      () => {
+        this.minValue = 0;
+        this.maxValue = 600;
         this.minRuntime.setValue(this.minValue);
         this.maxRuntime.setValue(this.maxValue);
         this.onCheckBoxChange(false);
@@ -45,6 +46,10 @@ export class SelectRuntimeComponent implements OnInit {
     this.maxRuntime['name'] = 'maxRuntime';
     this.emitControl.emit(this.minRuntime);
     this.emitControl.emit(this.maxRuntime);
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
   }
 
   onCheckBoxChange(checked: boolean) {
