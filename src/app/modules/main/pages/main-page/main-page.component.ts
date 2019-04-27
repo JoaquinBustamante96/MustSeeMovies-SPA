@@ -15,7 +15,6 @@ import { UrisModules } from '@app/core/routed-modules-uris';
 export class MainPageComponent implements OnInit{
 
   movies$: Observable<Array<MinimunMovie>>;
-  showFilter = true;
   movieSubscription: Subscription;
   mobileRange = [0, 716];
   desktopRange = [717, 9000];
@@ -50,10 +49,6 @@ export class MainPageComponent implements OnInit{
 
   OnMovieInformation(id: string) {
     this.router.navigate([UrisModules.movie, id]);
-  }
-
-  showHideFilter() {
-    this.showFilter = !this.showFilter;
   }
 
   scrolltop(){

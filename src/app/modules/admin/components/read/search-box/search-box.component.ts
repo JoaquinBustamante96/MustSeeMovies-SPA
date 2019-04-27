@@ -4,11 +4,11 @@ import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 import { BehaviorSubject, Subscription } from 'rxjs';
 
 @Component({
-  selector: 'app-search-box',
+  selector: 'app-search-box-admin',
   templateUrl: './search-box.component.html',
   styleUrls: ['./search-box.component.css']
 })
-export class SearchBoxComponent implements OnInit, OnDestroy {
+export class SearchBoxComponentAdmin implements OnInit, OnDestroy {
 
   @Output() searchValue = new EventEmitter();
   private values$ = new BehaviorSubject('');

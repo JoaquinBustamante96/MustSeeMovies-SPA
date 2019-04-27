@@ -27,7 +27,7 @@ export class FilterComponent implements OnInit {
   artMovement = StaticData.artMovement;
   genres = StaticData.genres;
   languages = StaticData.languages
-  reload$ = new Subject();
+  reload$ = new Subject<any>();
 
   classes = ['fitFilter', 'fitSubmit-button'];
   addClasses;
@@ -72,6 +72,7 @@ export class FilterComponent implements OnInit {
         }
       }
     )
+    console.log(values)
     this.filterValues.emit(values);
   }
 
@@ -119,6 +120,7 @@ export class FilterComponent implements OnInit {
   }
 
   onReload() {
+    this.reload$.next();
     this.color = true;
     this.blackWhite = true;
     this.setFromValues(null, null, [""], null, "", this.minRuntime, this.maxRuntime,

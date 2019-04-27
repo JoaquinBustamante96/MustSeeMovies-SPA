@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { SharedModule } from '@app/shared/shared.module';
 
 import {
-  ReadComponent, SearchBoxComponent,
+  ReadComponent, SearchBoxComponentAdmin,
   CreateComponent, GenreFieldComponent,
   FieldChipsComponent,
 } from './components';
@@ -16,7 +16,7 @@ import { WarningDialogComponent } from './components/warning-dialog/warning-dial
     FieldChipsComponent,
     GenreFieldComponent,
     CreateComponent,
-    SearchBoxComponent,
+    SearchBoxComponentAdmin,
     ReadComponent,
     CrudComponent,
     loginComponent,

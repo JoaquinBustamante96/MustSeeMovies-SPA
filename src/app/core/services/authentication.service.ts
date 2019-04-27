@@ -25,8 +25,8 @@ export class AuthenticationService {
     logout() {
         if (localStorage.getItem('currentUser')) {
             localStorage.removeItem('currentUser');
+            window.location.reload();
         }
-        this.router.navigate(['/admin/login'])
     }
 
     getAccessToken(): string {

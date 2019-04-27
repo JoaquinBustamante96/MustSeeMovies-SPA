@@ -16,7 +16,7 @@
 
    <mat-form-field appearance="outline" [hideRequiredMarker]="true">
      <mat-label>Password</mat-label>
-     <input matInput formControlName="password" >  
+     <input matInput formControlName="password" type="password" >  
      <mat-error *ngIf="isFieldValid('password')">{{errorMessage}}</mat-error>
    </mat-form-field>
 

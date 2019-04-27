@@ -23,7 +23,7 @@ export class SearchBoxComponent implements OnInit, OnDestroy {
     this.subscriptionMovieService = this.movieService.getSuggestionsByName().subscribe(
       suggestions => this.suggestions = suggestions
     )
-    this.subscriptionValues = this.values$.pipe(debounceTime(500), distinctUntilChanged()).subscribe(
+    this.subscriptionValues = this.values$.pipe(debounceTime(300), distinctUntilChanged()).subscribe(
       value => this.movieService.setSuggestionsByName(value)
     )
   }

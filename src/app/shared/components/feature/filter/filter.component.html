@@ -4,7 +4,7 @@
 
     <!-- select years and genre  -->
     <div class="year-container">
-      <app-select-years [years]="years" (allChange)="selectYearAllChange($event)"
+      <app-select-years [years]="years" [reload$]="reload$" (allChange)="selectYearAllChange($event)"
         (emitControl)="setControl($event.name,$event)"></app-select-years>
       <mat-form-field class="genre-container">
         <mat-select placeholder="Genres" formControlName="genre" multiple>
@@ -29,7 +29,7 @@
 
     <!-- select runtime and color -->
     <div class="runtime-color-container">
-      <app-select-runtime [minValue]="minRuntime" [maxValue]="maxRuntime"
+      <app-select-runtime [minValue]="minRuntime" [maxValue]="maxRuntime" [reload$]="reload$"
         (emitControl)="setControl($event.name,$event)">
       </app-select-runtime>
       <div class="color-container">

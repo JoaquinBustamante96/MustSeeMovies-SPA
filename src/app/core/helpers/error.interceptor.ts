@@ -13,7 +13,7 @@ export class ErrorInterceptor implements HttpInterceptor {
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
         return next.handle(request).pipe(catchError(error => {
-            if (this.router.url.includes('/admin') && error.status === 401 || error.status === 403) {
+            if (error.status === 401) {
                 this.authenticationService.logout();
             }
 
