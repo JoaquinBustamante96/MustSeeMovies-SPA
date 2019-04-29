@@ -12,7 +12,7 @@ export class SelectYearsComponent implements OnInit, OnDestroy {
   @Input() reload$: Observable<any>;
 
   @Output() emitControl = new EventEmitter<FormControl>();
-  @Output() allChange = new EventEmitter<boolean>();
+  @Output() checkBoxSelected = new EventEmitter<boolean>();
 
   labelPosition = 'before';
   startYear: FormControl;
@@ -25,7 +25,7 @@ export class SelectYearsComponent implements OnInit, OnDestroy {
   ngOnInit() {
 
     this.subscription = this.reload$.subscribe(
-      () => this.onAllChange(false)
+      () => this.onCheckBoxChange(false)
     );
 
     this.startYear = new FormControl(this.years[0]);
@@ -41,9 +41,9 @@ export class SelectYearsComponent implements OnInit, OnDestroy {
    this.subscription.unsubscribe();
   }
 
-  onAllChange(checked: boolean) {
+  onCheckBoxChange(checked: boolean) {
     this.checked = checked;
-    this.allChange.emit(checked);
+    this.checkBoxSelected.emit(checked);
   }
 
 }

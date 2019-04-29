@@ -72,9 +72,9 @@ export class HandleMoviesService {
     return this.movies$.value.length == 0;
   }
 
-  private initialSearch(){
-    this.searchByFilter( {
-      artMovement: "", country: "", genre: [""],
+  private initialSearch() {
+    this.searchByFilter({
+      artMovement: "", country: "", region: "", genre: [""],
       language: "", color: "", sound: "", minRuntime: 0,
       maxRuntime: 600, startYear: "1880", endYear: "2020"
     });

@@ -23,10 +23,10 @@ export class ReadComponent implements OnInit {
   sortDirection$ = new BehaviorSubject<string>('desc');
 
   displayedColumns = ['name', 'director', 'genre', 'storyline', 'artMovement',
-    'country', 'language', 'releaseDate', 'runtime', 'color', 'sound', 'actions'];
+    'country','region', 'language', 'releaseDate', 'runtime', 'color', 'sound', 'actions'];
 
   columns = ['name', 'director', 'genre', 'storyline', 'artMovement',
-    'country', 'language', 'releaseDate', 'runtime', 'color', 'sound'];
+    'country','region', 'language', 'releaseDate', 'runtime', 'color', 'sound'];
 
   constructor(private crudService: CrudService, public snackBar: MatSnackBar, public dialog: MatDialog) { }
 

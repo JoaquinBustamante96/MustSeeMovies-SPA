@@ -59,7 +59,6 @@ export class CreateComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   onSubmit(formDirective) {
-    console.log(this.movieFormBuilder.movieInfoGroup)
     this.formSubmitAttempt = true;
     if (this.movieForm.valid && !this.updateMovie) {
       const movieData = this.movieFormBuilder.movieInfoGroup.value;

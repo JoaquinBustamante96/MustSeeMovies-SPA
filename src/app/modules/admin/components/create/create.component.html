@@ -90,7 +90,8 @@
 
       <!-- storyline field -->
       <mat-form-field class="form-field">
-        <textarea formControlName="storyline" matInput placeholder="Storyline"></textarea>
+        <textarea formControlName="storyline" maxlength="500" matInput placeholder="Storyline"></textarea>
+        <mat-error *ngIf="isFieldValid('storyline')">{{errorMessage}}</mat-error>
       </mat-form-field>
 
     </ng-container>

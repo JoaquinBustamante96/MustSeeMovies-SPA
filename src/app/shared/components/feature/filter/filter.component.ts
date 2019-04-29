@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { StaticData } from '@app/shared';
 import { Subject } from 'rxjs';
 import { MatCheckbox } from '@angular/material';
+import { Filter } from '@app/core/models';
 
 
 @Component({
@@ -11,10 +12,9 @@ import { MatCheckbox } from '@angular/material';
   styleUrls: ['./filter.component.css'],
 })
 export class FilterComponent implements OnInit {
-  @Output('OnMoviesSearch') filterValues = new EventEmitter();
+  @Output('OnMoviesSearch') filterValues = new EventEmitter<Filter>();
 
   filterForm: FormGroup;
-  labelPosition = 'before';
   color = true;
   blackWhite = true;
   allYears = true;
@@ -24,7 +24,7 @@ export class FilterComponent implements OnInit {
 
   countries = StaticData.countries;
   years = StaticData.years;
-  artMovement = StaticData.artMovement;
+  artMovements = StaticData.artMovement;
   genres = StaticData.genres;
   languages = StaticData.languages
   reload$ = new Subject<any>();
@@ -48,6 +48,7 @@ export class FilterComponent implements OnInit {
       minRuntime: [""],
       maxRuntime: [""],
       color: [""],
+      sound: [true]
     });
   }
 
@@ -57,23 +58,35 @@ export class FilterComponent implements OnInit {
       this.filterForm.controls.startYear.setValue(this.years[0]);
       this.filterForm.controls.endYear.setValue(this.years[this.years.length - 1]);
     }
-    else if (this.filterForm.controls.startYear > this.filterForm.controls.endYear) {
+    else if (this.filterForm.controls.startYear.value > this.filterForm.controls.endYear.value) {
       const replace = this.filterForm.controls.startYear;
       this.filterForm.controls.startYear.setValue(this.filterForm.controls.endYear);
       this.filterForm.controls.endYear.setValue(replace);
     }
-
-    const values = this.filterForm.value
-    const controls = ["country", "artMovement", "language"];
-    controls.forEach(
-      control => {
-        if (values[control] == null) {
-          values[control] = "";
-        }
-      }
-    )
-    console.log(values)
-    this.filterValues.emit(values);
+    let values = this.filterForm.value;
+    if (StaticData.regions.includes(this.filterForm.controls.country.value)) {
+      values.region = this.filterForm.controls.country.value;
+      values.country = "";
+    } else {
+      values.region = "";
+    }
+    const filter: Filter = {
+      artMovement: values.artMovement,
+      country: values.country,
+      region: values.region,
+      language: values.language,
+      genre: values.genre,
+      color: values.color,
+      sound: values.sound,
+      minRuntime: values.minRuntime,
+      maxRuntime: values.maxRuntime,
+      startYear: values.startYear,
+      endYear: values.endYear,
+    }
+    this.filterValues.emit(filter);
+  }
+  noneOptionSelected(formControl: string) {
+    this.filterForm.controls[formControl].setValue("");
   }
 
   private setColorControlValue() {
@@ -92,12 +105,20 @@ export class FilterComponent implements OnInit {
     this.filterForm.setControl(controlName, control);
   }
 
-  selectYearAllChange(checked: boolean) {
+  OnyearscheckBoxSelected(checked: boolean) {
     this.allYears = checked;
   }
 
+  OnColorCheckBoxChange(name: string) {
+    if (name == 'color') {
+      this.color = !this.color;
+    } else {
+      this.blackWhite = !this.blackWhite;
+    }
+  }
+
   setFromValues(country: string, artMovement: string,
-    genre: string[], language: string, color: any, minRuntime: number, maxRuntime: number,
+    genre: string[], language: string, color: any, sound: boolean, minRuntime: number, maxRuntime: number,
     startYear: number, endYear: number) {
 
     this.filterForm.controls.language.setValue(language);
@@ -105,25 +126,20 @@ export class FilterComponent implements OnInit {
     this.filterForm.controls.country.setValue(country);
     this.filterForm.controls.genre.setValue(genre);
     this.filterForm.controls.color.setValue(color);
+    this.filterForm.controls.sound.setValue(sound);
     this.filterForm.controls.minRuntime.setValue(minRuntime);
     this.filterForm.controls.maxRuntime.setValue(maxRuntime);
     this.filterForm.controls.startYear.setValue(startYear);
     this.filterForm.controls.endYear.setValue(endYear);
 
   }
-  OnColorCheckBoxChange(name: string) {
-    if (name == 'color') {
-      this.color = !this.color;
-    } else {
-      this.blackWhite = !this.blackWhite; 
-    }
-  }
+
 
   onReload() {
     this.reload$.next();
     this.color = true;
     this.blackWhite = true;
-    this.setFromValues(null, null, [""], null, "", this.minRuntime, this.maxRuntime,
+    this.setFromValues("", "", [""], "", "", true, this.minRuntime, this.maxRuntime,
       StaticData.years[0], StaticData.years[StaticData.years.length - 1]);
   }
 
