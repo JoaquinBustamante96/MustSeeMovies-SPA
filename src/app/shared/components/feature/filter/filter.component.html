@@ -1,4 +1,4 @@
-<mat-card [ngClass]="addClasses ? 'fitFilter' : ''" class="filter-card">
+<mat-card class="filter-card fitFilter">
 
   <form [formGroup]="filterForm" class="filter-container" #formDirective="ngForm" (ngSubmit)="onSubmit(formDirective)">
 
@@ -6,13 +6,15 @@
     <div class="year-container">
       <app-select-years [years]="years" [reload$]="reload$" (checkBoxSelected)="OnyearscheckBoxSelected($event)"
         (emitControl)="setControl($event.name,$event)"></app-select-years>
+
       <mat-form-field class="genre-container">
-        <mat-select placeholder="Genres" formControlName="genre" multiple>
+        <mat-select placeholder="Genres" formControlName="genre" (selectionChange)="selectionGenreChange()"  multiple>
           <mat-option class="select-genre" *ngFor="let genre of genres" [value]="genre">
             {{genre}}
           </mat-option>
         </mat-select>
       </mat-form-field>
+
     </div>
 
     <!-- select country,artMovement,language  -->
@@ -70,7 +72,7 @@
       </div>
     </div>
 
-    <button [ngClass]="addClasses ? 'fitSubmit-button' : ''" class="submit-button" type="submit" mat-raised-button
+    <button  class="submit-button fitSubmit-button" type="submit" mat-raised-button
       color="primary">Search</button>
   </form>
 

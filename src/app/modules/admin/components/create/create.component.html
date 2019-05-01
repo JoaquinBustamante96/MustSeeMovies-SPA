@@ -46,7 +46,7 @@
           </mat-form-field>
 
           <mat-form-field class="select-field">
-            <mat-select placeholder="Genres" formControlName="genre" multiple>
+            <mat-select placeholder="Genres" formControlName="genre" (selectionChange)="selectionGenreChange()" multiple>
               <mat-option class="select-genre" *ngFor="let genre of genres" [value]="genre">
                 {{genre}}
               </mat-option>

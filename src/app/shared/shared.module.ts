@@ -21,7 +21,7 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatDialogModule } from '@angular/material/dialog';
 import { Ng5SliderModule } from 'ng5-slider';
 
-import { SafePipe, TruncateTextPipe } from './pipes/index';
+import { SafePipe, TruncateTextPipe, SplitArrayPipe } from './pipes/index';
 
 import { ShareButtonsModule } from '@ngx-share/buttons';
 
@@ -63,7 +63,8 @@ import { hideWithDelayDirective } from './directives/hide-with-delay.directive';
     FilterComponent,
     SelectRuntimeComponent,
     SelectYearsComponent,
-    ImageMovieComponent
+    ImageMovieComponent,
+    SplitArrayPipe
   ],
   imports: [
     CommonModule,
@@ -129,7 +130,8 @@ import { hideWithDelayDirective } from './directives/hide-with-delay.directive';
     FilterComponent,
     SelectRuntimeComponent,
     SelectYearsComponent,
-    ImageMovieComponent
+    ImageMovieComponent,
+    SplitArrayPipe
   ],
 })
 export class SharedModule { }

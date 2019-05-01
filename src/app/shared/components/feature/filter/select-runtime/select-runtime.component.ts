@@ -1,5 +1,5 @@
 import { Component, OnInit, EventEmitter, Output, Input, OnDestroy } from '@angular/core';
-import { Options } from 'ng5-slider';
+import { Options, LabelType } from 'ng5-slider';
 import { FormControl } from '@angular/forms';
 import { Observable, Subscription } from 'rxjs';
 
@@ -38,8 +38,16 @@ export class SelectRuntimeComponent implements OnInit,OnDestroy {
     this.options = {
       floor: this.minValue,
       ceil: this.maxValue,
-      step: 5
+      
+      translate: (value: number, label: LabelType): string => {
+        switch (label) {
+          case LabelType.High:
+            return value+'<b> min</b>';
+          default:
+            return value.toString();
+        }
     }
+  }
 
     this.setControlsValues(this.minValue, this.maxValue);
     this.minRuntime['name'] = 'minRuntime';

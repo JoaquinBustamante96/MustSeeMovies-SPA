@@ -60,15 +60,6 @@
  #logo-container{
     left: 25px;
 }
-/* .icon-close{
-    z-index: 901;
-    color: white;
-    top: 31px;
-    left: calc( 50vw - 130px );
-    cursor: pointer;
-    position: absolute;
-    display: initial;
- }  */
 }
 @media only screen and (max-width:400px) {
     .filter{

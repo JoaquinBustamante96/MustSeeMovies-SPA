@@ -73,6 +73,14 @@
     font-weight:500;
     font-size: 25px;
 }
+#genres-container{
+    position: absolute;
+}
+#genres{
+   position: relative;
+   width: 272px;
+   margin-left: 58px;
+}
 #share-buttons::ng-deep .sb-group{
     flex-direction: row;
 }
@@ -103,5 +111,11 @@
 #share-buttons{
     margin-left: 0px;
 }
+
+#genres{
+    position: relative;
+    width: 227px;
+    margin-left: 58px;
+ }
 
 } 

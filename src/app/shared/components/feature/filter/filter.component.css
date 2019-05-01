@@ -34,32 +34,19 @@
     display: flex;
     flex-direction: column;
 }
-::ng-deep .mat-primary .mat-option.mat-selected:not(.mat-option-disabled){
-    color: #7E57C2;
-}
-::ng-deep  .mat-primary .mat-pseudo-checkbox-checked, .mat-primary .mat-pseudo-checkbox-indeterminate{
-    background-color: #7E57C2;
-}
 .submit-button{
     position: absolute;
     right: 20px;
     bottom: -20px;
 }
+
 @media only screen and (max-width:716px) {
+ 
     .filter-card{
         min-width: 255px;
         width: 255px;
         height: auto;
     }
-    .fitFilter{
-        height: 80vh;
-        overflow-y: scroll;
-    }
-    .fitSubmit-button{
-    position: fixed;
-    left: calc( 50vw + 50px );
-    bottom: 5%;
-   }
     .filter-container{
         flex-direction: column;
         align-items: center;
@@ -69,4 +56,17 @@
     .genre-container{
         margin-left: 17px;
     }
+
+    @media only screen and (max-height:600px) {
+        .fitFilter{
+            height: 80vh;
+            overflow-y: scroll;
+        }
+        .fitSubmit-button{
+            position: fixed;
+            left: calc( 50vw + 50px );
+            bottom: 5%;
+           }
+    }
+
 } 

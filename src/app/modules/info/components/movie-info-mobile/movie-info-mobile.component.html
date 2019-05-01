@@ -34,8 +34,8 @@
           <h3>{{movie.director[0]}}</h3>
         </li>
         <li>
-          <h3 class="list-details-label">Genres: </h3>
-          <h3>{{movie.genre[0] +" | "+movie.genre[1]}}</h3>
+          <h3 id="genres-container" class="list-details-label ">Genres: </h3>
+          <h3 id="genres">{{movie.genre | splitArray}}</h3>
         </li>
         <li>
           <h3 class="list-details-label">Country: </h3>

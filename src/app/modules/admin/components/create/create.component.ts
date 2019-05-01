@@ -140,6 +140,15 @@ export class CreateComponent implements OnInit, OnDestroy, AfterViewInit {
     this.movieFormBuilder.movieInfoGroup.get(fieldName).setValue(values);
   }
 
+  myGenresSelected: string[];
+  selectionGenreChange() {
+    if (this.movieFormBuilder.movieInfoGroup.controls.genre.value.length <= 4) {
+      this.myGenresSelected = this.movieFormBuilder.movieInfoGroup.controls.genre.value;
+    } else {
+      this.movieFormBuilder.movieInfoGroup.controls.genre.setValue(this.myGenresSelected);
+    }
+  }
+
   resetFieldsChip() {
     Object.keys(this.fieldsChip).forEach(
       key => {

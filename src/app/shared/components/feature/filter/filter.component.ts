@@ -29,15 +29,9 @@ export class FilterComponent implements OnInit {
   languages = StaticData.languages
   reload$ = new Subject<any>();
 
-  classes = ['fitFilter', 'fitSubmit-button'];
-  addClasses;
-
   constructor(private formbuilder: FormBuilder) { }
 
   ngOnInit() {
-    if (window.innerHeight < 600) {
-      this.addClasses = true;
-    }
     this.filterForm = this.formbuilder.group({
       country: [""],
       artMovement: [""],
@@ -84,9 +78,6 @@ export class FilterComponent implements OnInit {
       endYear: values.endYear,
     }
     this.filterValues.emit(filter);
-  }
-  noneOptionSelected(formControl: string) {
-    this.filterForm.controls[formControl].setValue("");
   }
 
   private setColorControlValue() {
@@ -143,12 +134,13 @@ export class FilterComponent implements OnInit {
       StaticData.years[0], StaticData.years[StaticData.years.length - 1]);
   }
 
-  @HostListener('window:resize', ['$event'])
-  onResize(event) {
-    if (window.innerHeight < 600) {
-      this.addClasses = true;
+  myGenresSelected: string[];
+  selectionGenreChange() {
+    if (this.filterForm.controls.genre.value.length <= 4) {
+      this.myGenresSelected = this.filterForm.controls.genre.value;
     } else {
-      this.addClasses = false;
+      this.filterForm.controls.genre.setValue(this.myGenresSelected);
     }
   }
+
 }

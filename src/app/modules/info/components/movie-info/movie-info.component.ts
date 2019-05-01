@@ -12,12 +12,13 @@ export class MovieInfoComponent implements OnInit, OnDestroy {
   @Input('movie') movie$: Observable<Movie>;
 
   movie: Movie;
+  genres: string;
   subscription: Subscription;
 
   constructor() { }
 
   ngOnInit() {
-  
+
     this.subscription = this.movie$.pipe(
       filter(
         movie => movie.id != undefined
