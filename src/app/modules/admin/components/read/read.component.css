@@ -1,7 +1,6 @@
 .table-container{
     height: 70vh;
     overflow-x: auto;
-    overflow-y: auto;
 }
 .search-container{
     width: 200px;
@@ -16,9 +15,20 @@
     margin: 10px auto;
     width: 80%;
 }
+
+mat-cell:nth-child(1),
+mat-header-cell:nth-child(1),
+mat-cell:nth-child(2),
+mat-header-cell:nth-child(2),
+mat-cell:nth-child(3),
+mat-header-cell:nth-child(3){
+    flex: 0 0 10%;
+}
+
 mat-table{
-    width: 1600px;
-    overflow-y: auto;
+    height: 70vh;
+    width: 2600px;
+
     border-top: 1px solid #c3c3c3;
 }
 mat-paginator{
