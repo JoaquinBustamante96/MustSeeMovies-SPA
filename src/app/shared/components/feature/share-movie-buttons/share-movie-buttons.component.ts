@@ -14,7 +14,7 @@ export class ShareMovieButtonsComponent implements OnInit {
   @Input() show: string;
   theme = "circles-dark";
   include = ['pinterest', 'tumblr', 'twitter', 'whatsapp', 'facebook'];
-  size = "-6";
+  size = "-7";
   url: string;
   title: string;
   description: string;
