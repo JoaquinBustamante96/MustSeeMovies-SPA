@@ -14,10 +14,11 @@ import { MovieFormBuilder } from '@app/modules/admin/components/create/MovieForm
   templateUrl: './create.component.html',
   styleUrls: ['./create.component.css']
 })
-export class CreateComponent implements OnInit, OnDestroy, AfterViewInit {
+export class CreateComponent implements OnInit, AfterViewInit {
 
-  @Input() updateMovie: Movie;
-  @Output() resetMovie = new EventEmitter();
+  @Input() movie: Movie;
+  @Output() updateMovie = new EventEmitter();
+  @Output() createMovie = new EventEmitter();
 
   formSubmitAttempt = false;
   movieForm: FormGroup;
@@ -30,71 +31,54 @@ export class CreateComponent implements OnInit, OnDestroy, AfterViewInit {
   errorMessage = "You must enter a value";
   fieldsChip = { 'name': [], 'director': [] };
 
-  constructor(private formbuilder: FormBuilder, private crudService: CrudService, public snackBar: MatSnackBar) { }
+  constructor(private formbuilder: FormBuilder, private crudService: CrudService) { }
 
   ngOnInit() {
     this.formSubmitAttempt = false;
     this.movieFormBuilder = new MovieFormBuilder(this.formbuilder);
-    if (this.updateMovie) {
-      this.movieForm = this.movieFormBuilder.setMovie(this.updateMovie).build();
+    if (this.movie) {
+      this.movieForm = this.movieFormBuilder.setMovie(this.movie).build();
     } else {
       this.movieForm = this.movieFormBuilder.build();
     }
   }
 
   ngAfterViewInit() {
-    if (this.updateMovie) {
+    if (this.movie) {
       Object.keys(this.fieldsChip).forEach(
         key => {
-          this.addValue(key, this.updateMovie[key])
+          this.addValue(key, this.movie[key])
         }
       )
     }
   }
 
-  ngOnDestroy() {
-    if (this.updateMovie) {
-      this.resetMovie.emit();
-    }
-  }
-
   onSubmit(formDirective) {
     this.formSubmitAttempt = true;
-    if (this.movieForm.valid && !this.updateMovie) {
-      const movieData = this.movieFormBuilder.movieInfoGroup.value;
-      this.crudService.createMovie(movieData, this.movieForm.controls.poster.value)
-        .pipe(first())
-        .subscribe(
-          (isCreated) => {
-            if (isCreated) {
-              this.resetForm(formDirective);
-              this.openSnackBar('Movie created');
-            } else {
-              this.openSnackBar('Error Creating movie');
-            }
-          }
-        );
-    }
-    else if (this.movieFormBuilder.movieInfoGroup.valid && this.updateMovie) {
-      const movieData = this.movieFormBuilder.movieInfoGroup.value;
-      this.crudService.updateMovieData(this.updateMovie.id, movieData).subscribe(
-        () => {
-          this.openSnackBar("Movie updated");
-          this.resetMovie.emit();
-          this.resetForm(formDirective);
-        },
-        error => this.openSnackBar('Error Updating movie')
-      );
-      if (this.movieForm.controls.poster.valid) {
-        this.crudService.updatePoster(this.updateMovie.id, this.movieForm.controls.poster.value);
+    if (this.movieFormBuilder.movieInfoGroup.valid) {
+      const data = { movie: this.movieFormBuilder.movieInfoGroup.value, poster: null }
+      if (this.isPosterValid()) {
+        data.poster = this.movieForm.controls.poster.value;
+      }
+      if (!this.movie && this.movieForm.controls.poster.valid) {
+        this.createMovie.emit(data);
+        this.resetForm(formDirective);
+      }
+      else if (this.movie) {
+        this.updateMovie.emit(data)
+        this.resetForm(formDirective);
       }
     }
   }
 
-  openSnackBar(message: string) {
-    this.snackBar.open(message, 'cerrar', {
-      duration: 3000,
-    });
+  isPosterValid(): boolean {
+    if (!this.movie) {
+      return this.movieForm.controls.poster.valid;
+    }
+    if (
+      (this.movieForm.controls.poster.hasError('forbiddenSize'))
+    ) { return false }
+    return true;
   }
 
   resetForm(formDirective) {
@@ -106,8 +90,14 @@ export class CreateComponent implements OnInit, OnDestroy, AfterViewInit {
 
   isFieldValid(field: string): Boolean {
     if (field == 'poster') {
-      return (!this.movieForm.get(field).valid && this.movieForm.get(field).touched) ||
-        (this.movieForm.get(field).untouched && this.formSubmitAttempt);
+      if (!this.movie) {
+        return ((!this.movieForm.get(field).valid && this.movieForm.get(field).touched) ||
+          (this.movieForm.get(field).untouched && this.formSubmitAttempt));
+      }
+      if (
+        (this.movieForm.controls.poster.hasError('forbiddenSize'))
+      ) { return true }
+      return false;
     }
     return (!this.movieFormBuilder.movieInfoGroup.get(field).valid && this.movieFormBuilder.movieInfoGroup.get(field).touched) ||
       (this.movieFormBuilder.movieInfoGroup.get(field).untouched && this.formSubmitAttempt);

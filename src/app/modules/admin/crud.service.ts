@@ -5,7 +5,7 @@ import { MatSnackBar } from '@angular/material';
 import { combineLatest } from 'rxjs';
 import { first } from 'rxjs/operators';
 import { HttpService } from "@app/core/services";
-import { Movie } from "@app/core/models";
+import { Movie, MinimunMovie } from "@app/core/models";
 import { Uris } from '@app/core/uris-api';
 import { MoviePage } from '@app/core/models/MoviePage.model';
 
@@ -50,7 +50,7 @@ export class CrudService {
         );
     }
 
-    createMovie(movie: Movie, file: File): Observable<any> {
+    createMovie(movie: Movie, file: File): Observable<boolean> {
 
         combineLatest(this.uploadposter(file), this.uploadMovieData(movie))
             .pipe(first())
@@ -79,7 +79,7 @@ export class CrudService {
         return this.httpService.post(Uris.file, formdata);
     }
 
-    private uploadMovieData(movie: Movie): Observable<any> {
+    private uploadMovieData(movie: Movie): Observable<MinimunMovie> {
         return this.httpService.post(Uris.movie, movie);
     }
 

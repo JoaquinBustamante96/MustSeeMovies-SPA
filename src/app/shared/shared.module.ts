@@ -23,6 +23,8 @@ import { Ng5SliderModule } from 'ng5-slider';
 
 import { SafePipe, TruncateTextPipe, SplitArrayPipe } from './pipes/index';
 
+import {AutosizeModule} from "ngx-autosize";
+
 import { ShareButtonsModule } from '@ngx-share/buttons';
 
 import {
@@ -89,6 +91,7 @@ import { hideWithDelayDirective } from './directives/hide-with-delay.directive';
     Ng5SliderModule,
     MatDialogModule,
     ShareButtonsModule,
+    AutosizeModule
   ],
   exports: [
     MatRadioModule,
@@ -131,7 +134,8 @@ import { hideWithDelayDirective } from './directives/hide-with-delay.directive';
     SelectRuntimeComponent,
     SelectYearsComponent,
     ImageMovieComponent,
-    SplitArrayPipe
+    SplitArrayPipe,
+    AutosizeModule
   ],
 })
 export class SharedModule { }
