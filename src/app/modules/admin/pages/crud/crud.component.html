@@ -11,7 +11,7 @@
    </div>
 
    <div @fadeIn *ngIf="isPressed('create')" class="child-container">
-      <app-create [updateMovie]="movie" (resetMovie)="onReset($event)"></app-create>
+      <app-create [movie]="movie" (updateMovie)="onUpdateMovie($event)" (createMovie)="onCreateMovie($event)"></app-create>
    </div>
 
 </div>

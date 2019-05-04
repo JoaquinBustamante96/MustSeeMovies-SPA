@@ -13,8 +13,10 @@
       aria-label="Elements">
 
       <ng-container *ngFor="let column of columns" [matColumnDef]="column">
-        <mat-header-cell *matHeaderCellDef mat-sort-header>{{column}}</mat-header-cell>
-        <mat-cell *matCellDef="let row">{{row[column] | truncateTextPipe: 50 }}</mat-cell>
+
+        <mat-header-cell *matHeaderCellDef mat-sort-header>{{column | uppercase }}</mat-header-cell>
+        <mat-cell *matCellDef="let row">{{row[column] | truncateTextPipe: 40 }}</mat-cell>
+
       </ng-container>
 
       <ng-container matColumnDef="actions">

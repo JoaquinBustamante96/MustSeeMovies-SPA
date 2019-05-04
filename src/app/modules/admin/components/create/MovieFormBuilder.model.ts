@@ -19,7 +19,7 @@ export class MovieFormBuilder {
     private runtime = '';
     private color = true;
     private sound = true;
-    private poster = '';
+    private poster: File;
     private youtubeId = '';
     private imdb = '';
 
@@ -68,7 +68,6 @@ export class MovieFormBuilder {
         }
         this.color = movie.color;
         this.sound = movie.sound;
-        this.poster = movie.poster;
 
         if (movie.movieLinks) {
             if (movie.movieLinks.youtubeId) {

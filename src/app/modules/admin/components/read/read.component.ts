@@ -22,8 +22,8 @@ export class ReadComponent implements OnInit {
   sortKey$ = new BehaviorSubject<string>('name');
   sortDirection$ = new BehaviorSubject<string>('desc');
 
-  displayedColumns = ['name', 'director', 'genre', 'storyline', 'artMovement',
-    'country','region', 'language', 'releaseDate', 'runtime', 'color', 'sound', 'actions'];
+  displayedColumns = ['name', 'director', 'genre','artMovement','language',
+    'country','region', 'releaseDate', 'runtime', 'color', 'sound','storyline', 'actions'];
 
   columns = ['name', 'director', 'genre', 'storyline', 'artMovement',
     'country','region', 'language', 'releaseDate', 'runtime', 'color', 'sound'];

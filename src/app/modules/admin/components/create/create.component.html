@@ -1,4 +1,4 @@
-<mat-card *ngIf="updateMovie" class="alert-card">Editing Movie: {{ updateMovie.name[0] }}</mat-card>
+<mat-card *ngIf="movie" class="alert-card">Editing Movie: {{ movie.name[0] }}</mat-card>
 <mat-card class="card">
   <form class="form--container" #formDirective="ngForm" [formGroup]="movieForm" (ngSubmit)="onSubmit(formDirective)">
     <!-- name Field -->
@@ -46,7 +46,8 @@
           </mat-form-field>
 
           <mat-form-field class="select-field">
-            <mat-select placeholder="Genres" formControlName="genre" (selectionChange)="selectionGenreChange()" multiple>
+            <mat-select placeholder="Genres" formControlName="genre" (selectionChange)="selectionGenreChange()"
+              multiple>
               <mat-option class="select-genre" *ngFor="let genre of genres" [value]="genre">
                 {{genre}}
               </mat-option>
@@ -59,7 +60,7 @@
 
       <!-- action buttons -->
       <div>
-        <mat-checkbox formControlName="color" >Color</mat-checkbox>
+        <mat-checkbox formControlName="color">Color</mat-checkbox>
         <mat-checkbox formControlName="sound" id="sound-checkbox">Sound</mat-checkbox>
       </div>
 
@@ -90,7 +91,8 @@
 
       <!-- storyline field -->
       <mat-form-field class="form-field">
-        <textarea formControlName="storyline" maxlength="500" matInput placeholder="Storyline"></textarea>
+        <textarea class="storyline" autosize formControlName="storyline" maxlength="500" matInput
+          placeholder="Storyline"></textarea>
         <mat-error *ngIf="isFieldValid('storyline')">{{errorMessage}}</mat-error>
       </mat-form-field>
 
@@ -99,12 +101,12 @@
     <div id="file-input">
       <input type="file" (change)="onFileChange($event.target.files[0])" accept=".png, .jpg, .jpeg">
       <input type="hidden" formControlName="poster">
-      <mat-error *ngIf="isFieldValid('poster') && !updateMovie">Select an image, Max image size 120kb</mat-error>
+      <mat-error *ngIf="isFieldValid('poster')">Select an image, Max image size 120kb</mat-error>
     </div>
 
     <mat-card-actions class="action--container">
       <button color="warn" type="button" (click)="resetForm(formDirective)" mat-flat-button> reset </button>
-      <button id="upload" color="primary" mat-flat-button type="submit"> upload </button>
+      <button id="upload" color="primary" mat-flat-button type="submit" > upload </button>
     </mat-card-actions>
 
   </form>
