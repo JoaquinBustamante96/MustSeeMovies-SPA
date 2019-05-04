@@ -125,6 +125,10 @@ export class FilterComponent implements OnInit {
 
   }
 
+  noneOptionSelected(formControl: string) {
+    this.filterForm.controls[formControl].setValue("");
+  }
+
 
   onReload() {
     this.reload$.next();

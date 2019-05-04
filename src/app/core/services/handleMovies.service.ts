@@ -61,9 +61,11 @@ export class HandleMoviesService {
       switch (this.searchType) {
         case SearchType.byFilter:
           this.movieService.FilterMoviePage(this.filter, this.pageNumber, this.size);
-
+          return;
+          
         case SearchType.byName:
-          this.movieService.searchByName(this.name, this.pageNumber, this.size)
+          this.movieService.searchByName(this.name, this.pageNumber, this.size);
+          return;
       }
     }
   }
