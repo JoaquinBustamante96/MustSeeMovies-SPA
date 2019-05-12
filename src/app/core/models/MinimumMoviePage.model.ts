@@ -1,9 +1,9 @@
 import { Page } from './page.model';
-import { MinimunMovie } from './minimunMovie.model';
+import { MinimumMovie } from './minimumMovie.model';
 import { Deserializable } from './deserializable.model';
 import { Pageable } from './pageable.model';
 
-export class MinimunMoviePage implements Page<MinimunMovie>, Deserializable {
+export class MinimumMoviePage implements Page<MinimumMovie>, Deserializable {
     empty: boolean;
     first: boolean;
     last: boolean;
@@ -12,13 +12,13 @@ export class MinimunMoviePage implements Page<MinimunMovie>, Deserializable {
     totalElements: number;
     totalPages: number;
     pageable: Pageable;
-    content: Array<MinimunMovie>;
+    content: Array<MinimumMovie>;
 
     deserialize(input: any) {
         Object.assign(this, input);
         this.content = input.content.map(
             movie => {
-                return new MinimunMovie().deserialize(movie);
+                return new MinimumMovie().deserialize(movie);
             }
         )
         this.pageable = new Pageable().deserialize(input['pageable']);

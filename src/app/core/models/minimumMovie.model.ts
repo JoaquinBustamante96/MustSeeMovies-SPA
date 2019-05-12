@@ -1,7 +1,7 @@
 import { Deserializable } from './deserializable.model';
 import { Uris } from '../uris-api';
 
-export class MinimunMovie implements Deserializable {
+export class MinimumMovie implements Deserializable {
     id: string;
     name: string[];
     director: string[];
@@ -16,7 +16,7 @@ export class MinimunMovie implements Deserializable {
     }
 
     getposterUrl(): string {
-      return `${Uris.api}/file/?id=${this.poster}`;
+      return `${Uris.imgsApi}/${this.poster}`;
     }
 
     getYear(): string {

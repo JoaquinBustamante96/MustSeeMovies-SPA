@@ -5,7 +5,7 @@ import { MatSnackBar } from '@angular/material';
 import { combineLatest } from 'rxjs';
 import { first } from 'rxjs/operators';
 import { HttpService } from "@app/core/services";
-import { Movie, MinimunMovie } from "@app/core/models";
+import { Movie, MinimumMovie } from "@app/core/models";
 import { Uris } from '@app/core/uris-api';
 import { MoviePage } from '@app/core/models/MoviePage.model';
 
@@ -79,7 +79,7 @@ export class CrudService {
         return this.httpService.post(Uris.file, formdata);
     }
 
-    private uploadMovieData(movie: Movie): Observable<MinimunMovie> {
+    private uploadMovieData(movie: Movie): Observable<MinimumMovie> {
         return this.httpService.post(Uris.movie, movie);
     }
 

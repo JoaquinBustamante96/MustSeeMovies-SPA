@@ -9,7 +9,7 @@ export class snackbar {
 
     constructor(private snackBar: MatSnackBar) { }
 
-    openSnackBar(message: string, duration: number = 3) {
+    openSnackBar(message: string, duration: number = 3000) {
         this.snackBar.open(message, 'close', {
             duration: duration,
         });

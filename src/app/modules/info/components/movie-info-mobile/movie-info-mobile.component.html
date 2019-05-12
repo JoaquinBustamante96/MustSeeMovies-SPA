@@ -4,7 +4,7 @@
     <img class="poster" [src]="movie.getposterUrl() | safe">
     <div class="overlay"></div>
     <div class="title">
-      <h2>{{movie.name[0] | uppercase}}</h2>
+      <h2>{{movie.name[0] | uppercase }}</h2>
       <p class="mat-body-strong">{{movie.director[0] | uppercase}}</p>
       <p class="mat-small">{{movie.country | uppercase}}, {{movie.getYear() }}</p>
     </div>

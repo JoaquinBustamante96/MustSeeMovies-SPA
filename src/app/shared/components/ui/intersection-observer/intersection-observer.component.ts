@@ -29,7 +29,7 @@ export class IntersectionObserverComponent implements OnInit, OnDestroy {
     
     this.observer = new IntersectionObserver((entries) => {
       this.entries$.next(entries);
-      if (entries[0].intersectionRatio >= 0.1) {
+      if (entries[0].intersectionRatio >= 0.4) {
         this.isInView.emit(true)
       }
       else if (entries[0].intersectionRatio == 0 && !entries[0].isIntersecting) {

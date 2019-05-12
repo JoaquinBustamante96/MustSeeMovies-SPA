@@ -33,13 +33,13 @@
 .title{
     position: absolute;
     z-index: 44;
-    top: 10px;
-    left: 20px;
-    width: 90%;
+    top: 3px;
+    left: 10px;
+    width: 95%;
 }
 .title h2{
     font-size: 22px;
-    margin-bottom: 0px;
+    margin-bottom: -5px;
 }
 .title p{
     display: inline;
@@ -72,13 +72,16 @@
     color: white;
 }
 @media only screen and (max-width: 340px) {
+    .title{
+        left: 6px;
+    }
     .card{
         width:260px;
     }
     .image-container,
     .image-container img{
         min-width: 250px;
-        min-height: 220px;
+        min-height: 196px;
     }
 } 
 

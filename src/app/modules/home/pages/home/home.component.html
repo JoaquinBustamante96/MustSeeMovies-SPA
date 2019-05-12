@@ -3,8 +3,14 @@
 
 <div class="content">
 
-    <div id="filter-container">
-        <app-filter *appShowWithin="desktopRange" (OnMoviesSearch)="searchByFilter($event)"></app-filter>
+    <div id="filter-container" *appShowWithin="desktopRange">
+        <app-filter (OnMoviesSearch)="searchByFilter($event)"></app-filter>
+    </div>
+
+    <div class="titles-container mat-typography">
+    <h2 
+    [class.active]="optionSelected == 2"
+    class="title latest" (click)="searchLatest()">Latest</h2>
     </div>
 
     <ng-container *ngFor="let movie of movies$ | async; let last = last">
