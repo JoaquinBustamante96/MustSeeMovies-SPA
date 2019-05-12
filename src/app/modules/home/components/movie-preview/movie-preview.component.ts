@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { MinimunMovie } from '@app/core/models';
+import { MinimumMovie } from '@app/core/models';
 
 
 @Component({
@@ -9,7 +9,7 @@ import { MinimunMovie } from '@app/core/models';
 })
 export class MoviePreviewComponent implements OnInit {
 
-  @Input() movie: MinimunMovie;
+  @Input() movie: MinimumMovie;
   @Output() OnMovieInformation = new EventEmitter<any>();
 
   constructor() { }

@@ -1,4 +1,5 @@
 export enum SearchType{
     byFilter,
-    byName
+    byName,
+    latest
 }

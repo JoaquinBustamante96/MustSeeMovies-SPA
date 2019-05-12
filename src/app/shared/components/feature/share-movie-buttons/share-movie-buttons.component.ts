@@ -1,6 +1,5 @@
-import { Component, OnInit, Input, HostListener } from '@angular/core';
-import { MinimunMovie } from '@app/core/models';
-import { Uris } from '@app/core/uris-api';
+import { Component, OnInit, Input } from '@angular/core';
+import { MinimumMovie } from '@app/core/models';
 import { UrisModules } from '@app/core/routed-modules-uris';
 
 @Component({
@@ -10,7 +9,7 @@ import { UrisModules } from '@app/core/routed-modules-uris';
 })
 export class ShareMovieButtonsComponent implements OnInit {
 
-  @Input() movie: MinimunMovie;
+  @Input() movie: MinimumMovie;
   @Input() show: string;
   theme = "circles-dark";
   include = ['pinterest', 'tumblr', 'twitter', 'whatsapp', 'facebook'];

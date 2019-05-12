@@ -24,20 +24,29 @@
 .title{
     position: absolute;
     z-index: 44;
-    top: 10px;
-    left: 20px;
+    top: 3px;
+    left: 12px;
     width: 90%;
     color: white;
 }
 .title h2{
     font-size: 22px;
-    margin-bottom: 0px;
+    margin-bottom: -3px;
 }
 .title p{
     display: inline;
     margin-right: 10px;
 }
-@media only screen and (max-width: 420px) {
+@media only screen and (max-width: 716px) {
+    .img-container img,
+    .img-container{
+        min-width: 340px;
+        min-height: 228px;
+        width: 340px;
+        height: 228px;
+    }
+} 
+@media only screen and (max-width: 340px) {
     .img-container img,
     .img-container{
         min-width: 250px;

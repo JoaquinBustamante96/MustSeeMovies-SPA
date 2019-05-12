@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, OnDestroy, Output, EventEmitter } from '@angular/core';
-import { MinimunMovie } from '@app/core/models';
+import { MinimumMovie } from '@app/core/models';
 import { MovieService } from '@app/core/services';
 import { Subscription, Observable } from 'rxjs';
 import { Router } from '@angular/router';
@@ -18,7 +18,7 @@ export class GalleryMoviesComponent implements OnInit, OnDestroy {
   @Output() onMovieSelected = new EventEmitter();
   redirectToInfoPage = UrisModules.movie;
   idSubscription: Subscription;
-  movies: Array<MinimunMovie>;
+  movies: Array<MinimumMovie>;
   page: number = 0;
   size: number = 3;
 

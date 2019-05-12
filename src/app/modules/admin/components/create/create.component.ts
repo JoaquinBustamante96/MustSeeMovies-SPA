@@ -60,9 +60,9 @@ export class CreateComponent implements OnInit, AfterViewInit {
       if (this.isPosterValid()) {
         data.poster = this.movieForm.controls.poster.value;
       }
-      if (!this.movie && this.movieForm.controls.poster.valid) {
+      if (!this.movie  && this.movieForm.controls.poster.valid) {
         this.createMovie.emit(data);
-        this.resetForm(formDirective);
+       this.resetForm(formDirective);
       }
       else if (this.movie) {
         this.updateMovie.emit(data)
@@ -85,6 +85,7 @@ export class CreateComponent implements OnInit, AfterViewInit {
     this.formSubmitAttempt = false;
     formDirective.resetForm();
     this.movieForm.reset();
+    this.movieForm.controls.poster.setValue("null");
     this.resetFieldsChip();
   }
 

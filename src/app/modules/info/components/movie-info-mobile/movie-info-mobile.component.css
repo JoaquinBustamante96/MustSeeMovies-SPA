@@ -27,13 +27,13 @@
 .title{
     position: absolute;
     z-index: 44;
-    top: 10px;
-    left: 20px;
+    top: 3px;
+    left: 10px;
     width: 90%;
 }
 .title h2{
     font-size: 22px;
-    margin-bottom: 0px;
+    margin-bottom: -4px;
 }
 .title p{
     display: inline;
@@ -46,16 +46,12 @@
     color: rgba(255, 255, 255, 0.5);
     cursor: pointer;
 }
-.option:hover{
+.option:hover,.active{
     color:white;
     text-decoration: underline;
 }
 #share-buttons{
     margin-left: 40px;
-}
-.active{
-    color: white;
-    text-decoration: underline;
 }
 .list-details{
     list-style:none;
@@ -100,13 +96,16 @@
 }
 
 @media only screen and (max-width: 340px) {
+    .title{
+        left: 6px;
+    }
     .card{
         width: 275px;
     }
     .image-container img,
     .image-container{
     min-width: 250px;
-    min-height: 200px;
+    min-height: 196px;
 }
 #share-buttons{
     margin-left: 0px;

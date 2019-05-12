@@ -1,6 +1,6 @@
 import { Meta } from '@angular/platform-browser';
 import { Injectable } from '@angular/core';
-import { MinimunMovie } from '../models';
+import { MinimumMovie } from '../models';
 
 @Injectable({
     providedIn: 'root'
@@ -13,7 +13,7 @@ export class SEOService {
         this.meta.addTag({ name: name, content: content });
     }
 
-    addTagsForMovie(movie: MinimunMovie) {
+    addTagsForMovie(movie: MinimumMovie) {
         this.meta.addTag({ name: 'og:title', content: movie.name[0] });
         this.meta.addTag({ name: 'og:image', content: movie.getposterUrl() });
 

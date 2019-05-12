@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter, OnDestroy } from '@angular/core';
-import { MinimunMovie } from '@app/core/models';
+import { MinimumMovie } from '@app/core/models';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -9,13 +9,13 @@ import { Subscription } from 'rxjs';
 })
 export class ImageMovieComponent implements OnInit, OnDestroy {
 
-  @Input() movie: MinimunMovie;
+  @Input() movie: MinimumMovie;
   @Output() OnMovieInformation = new EventEmitter<any>();
   showImage = false;
   entriesSubscription: Subscription;
   options= {
     root: null,
-    rootMargin: "1000px 0px 1000px 0px",
+    rootMargin: "1100px 0px 1100px 0px",
     threshold: 0
   }
 

@@ -1,8 +1,8 @@
 import { MovieLinks } from './MovieLinks.model';
-import { MinimunMovie } from './minimunMovie.model';
+import { MinimumMovie } from './minimumMovie.model';
 import { Deserializable } from './deserializable.model';
 
-export class Movie extends MinimunMovie implements Deserializable {
+export class Movie extends MinimumMovie implements Deserializable {
 
      genre: string[];
      artMovement: string;

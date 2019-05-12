@@ -1,28 +1,27 @@
-<app-intersection-observer id="intersection" 
-(isInView)="onViewChange($event)"
-[options]="options"
-   ></app-intersection-observer>
-   
+<app-intersection-observer id="intersection" (isInView)="onViewChange($event)" [options]="options">
+</app-intersection-observer>
+
 <mat-card *ngIf="movie" class="card mat-typography">
- 
+
   <div class="image-container" (click)="onMovieInformation()" mat-card-image>
     <img *ngIf="showImage" class="poster" [src]="movie.getposterUrl() | safe">
     <div class="overlay"></div>
     <div class="title">
-      <h2>{{movie.name[0] | uppercase}}</h2>
+      <h2>{{movie.name[0] | uppercase }}</h2>
       <p class="mat-body-strong">{{movie.director[0] | uppercase}}</p>
       <p class="mat-small">{{movie.country | uppercase}}, {{movie.getYear()}}</p>
     </div>
   </div>
-  
+
   <mat-card-content class="info-container">
-      <h3 class="storyline-title">Storyline</h3>
-      <app-share-movie-buttons id="share-buttons" [movie]="movie" [show]="2"></app-share-movie-buttons>
+    <h3 class="storyline-title">Storyline</h3>
+    <app-share-movie-buttons id="share-buttons" [movie]="movie" [show]="2"></app-share-movie-buttons>
 
     <p class="mat-body-strong">
       {{movie.storyline | truncateTextPipe: 245}}
     </p>
 
   </mat-card-content>
-  <p class="more-info mat-body-strong" (click)="onMovieInformation()">MORE INFO <i class="material-icons">keyboard_arrow_right</i> </p>
+  <p class="more-info mat-body-strong" (click)="onMovieInformation()">MORE INFO <i
+      class="material-icons">keyboard_arrow_right</i> </p>
 </mat-card>

@@ -1,11 +1,14 @@
 import { Injectable } from "@angular/core";
 import { HttpService } from "@app/core/services/http.service";
 import { Filter } from '../models/filter.model';
-import { MinimunMovie } from '@app/core/models';
+import { MinimumMovie } from '@app/core/models';
 import { Page, Movie } from '@app/core/models';
 import { Observable, Subject } from 'rxjs';
-import { MinimunMoviePage } from '@app/core/models';
+import { MinimumMoviePage } from '@app/core/models';
 import { Uris } from '@app/core/uris-api';
+import 'rxjs/add/operator/delay';
+import 'rxjs/add/operator/scan';
+import 'rxjs/add/operator/retryWhen';
 
 @Injectable({
     providedIn: 'root'
@@ -13,15 +16,15 @@ import { Uris } from '@app/core/uris-api';
 
 export class MovieService {
 
-    private minimunMoviesPage$: Subject<Page<MinimunMovie>> = new Subject();
+    private minimumMoviesPage$: Subject<Page<MinimumMovie>> = new Subject();
     private movie$: Subject<Movie> = new Subject();
-    private relatedMoviesPage$: Subject<Page<MinimunMovie>> = new Subject();
+    private relatedMoviesPage$: Subject<Page<MinimumMovie>> = new Subject();
     private movieNames$: Subject<string[]> = new Subject();
 
     constructor(private httpService: HttpService) { }
 
-    getMoviesPage(): Observable<Page<MinimunMovie>> {
-        return this.minimunMoviesPage$.asObservable();
+    getMoviesPage(): Observable<Page<MinimumMovie>> {
+        return this.minimumMoviesPage$.asObservable();
     }
 
     getMovie(id: string): Observable<Movie> {
@@ -36,20 +39,65 @@ export class MovieService {
     }
 
     FilterMoviePage(filter: Filter, pageNumber: number, size: number) {
-        this.getFilteredMoviesPage(filter, pageNumber, size).subscribe(
-            response => {
-                this.minimunMoviesPage$.next(new MinimunMoviePage().deserialize(response));
-            }
-        )
+        this.getFilteredMoviesPage(filter, pageNumber, size)
+            .retryWhen((error) => {
+                return error.scan(
+                    (retryCount) => {
+                        retryCount += 1;
+                        if (retryCount < 3) {
+                            return retryCount;
+                        } else {
+                            throw (error);
+                        }
+                    }, 0).delay(1000)
+            })
+            .subscribe(
+                response => {
+                    this.minimumMoviesPage$.next(new MinimumMoviePage().deserialize(response));
+                }
+            )
     }
 
     searchByName(name: string, pageNumber, size) {
         this.httpService
             .param("page", pageNumber)
             .param('size', size)
-            .get(`${Uris.movie+Uris.filter+Uris.Name}/${name}`)
+            .get(`${Uris.movie + Uris.filter + Uris.Name}/${name}`)
+            .retryWhen((error) => {
+                return error.scan(
+                    (retryCount) => {
+                        retryCount += 1;
+                        if (retryCount < 3) {
+                            return retryCount;
+                        } else {
+                            throw (error);
+                        }
+                    }, 0).delay(1000)
+            })
             .subscribe(
-                response => this.minimunMoviesPage$.next(new MinimunMoviePage().deserialize(response))
+                response => this.minimumMoviesPage$.next(new MinimumMoviePage().deserialize(response))
+            )
+    }
+
+    searchMinimumPage(page, size, direction: string) {//direction = ASC or DESC
+        this.httpService
+            .param('page', page)
+            .param('size', size)
+            .param('dir', direction)
+            .get(Uris.movie + Uris.page)
+            .retryWhen((error) => {
+                return error.scan(
+                    (retryCount) => {
+                        retryCount += 1;
+                        if (retryCount < 3) {
+                            return retryCount;
+                        } else {
+                            throw (error);
+                        }
+                    }, 0).delay(1000)
+            })
+            .subscribe(
+                response => this.minimumMoviesPage$.next(new MinimumMoviePage().deserialize(response))
             )
     }
 
@@ -59,7 +107,7 @@ export class MovieService {
             .param('size', size)
             .param('language', filter.language)
             .param('country', filter.country)
-            .param('region',filter.region)
+            .param('region', filter.region)
             .param('color', filter.color)
             .param('sound', filter.sound)
             .param('genre', filter.genre.toString())
@@ -71,7 +119,7 @@ export class MovieService {
             .get(Uris.movie + Uris.filter);
     }
 
-    getRelatedMoviesPage(): Observable<Page<MinimunMovie>> {
+    getRelatedMoviesPage(): Observable<Page<MinimumMovie>> {
         return this.relatedMoviesPage$.asObservable();
     }
 
@@ -81,7 +129,7 @@ export class MovieService {
             .param('size', size)
             .get(`${Uris.movie}${Uris.related}/${id}`).subscribe(
                 moviePage => {
-                    this.relatedMoviesPage$.next(new MinimunMoviePage().deserialize(moviePage))
+                    this.relatedMoviesPage$.next(new MinimumMoviePage().deserialize(moviePage))
                 }
             )
     }

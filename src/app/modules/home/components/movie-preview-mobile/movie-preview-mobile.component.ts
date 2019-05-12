@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { MinimunMovie } from '@app/core/models';
+import { MinimumMovie } from '@app/core/models';
 
 @Component({
   selector: 'app-movie-preview-mobile',
@@ -8,12 +8,12 @@ import { MinimunMovie } from '@app/core/models';
 })
 export class MoviePreviewMobileComponent implements OnInit {
 
-  @Input() movie: MinimunMovie;
+  @Input() movie: MinimumMovie;
   @Output() OnMovieInformation = new EventEmitter<any>();
   showImage: boolean;
   options = {
     root: null,
-    rootMargin: "1000px 0px 1000px 0px",
+    rootMargin: "1100px 0px 1100px 0px",
     threshold: 0
   }
 
