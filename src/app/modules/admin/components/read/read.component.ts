@@ -61,7 +61,6 @@ export class ReadComponent implements OnInit {
   }
 
   openDialog(name: string, id: string) {
-    console.log(name)
     const dialogRef = this.dialog.open(WarningDialogComponent, {
       width: '250px',
       data: { name: name, id: id }

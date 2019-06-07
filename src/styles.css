@@ -55,3 +55,19 @@ input:-webkit-autofill:active  {
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
     background-color: #212121;
 }
+.snackbar{
+    position: fixed;
+    bottom: 0px;
+    color: white !important;
+    background: #212121 !important;
+    width: 280px !important;
+    margin: auto;
+    left: calc(50% - 150px);
+}
+.selected{
+    color:white;
+    text-decoration: underline;
+}
+.clickeable:hover{
+    cursor: pointer;
+}

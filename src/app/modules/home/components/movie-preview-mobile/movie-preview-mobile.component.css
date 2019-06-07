@@ -17,6 +17,9 @@
     min-width: 300px;
     min-height: 200px;
 }
+.add-list-icon{
+    color: white;
+}
 .image-container img{
     width: 100%;
     height: 100%;
@@ -35,7 +38,7 @@
     z-index: 44;
     top: 3px;
     left: 10px;
-    width: 95%;
+    width: 85%;
 }
 .title h2{
     font-size: 22px;
@@ -70,6 +73,15 @@
 }
 .more-info:hover{
     color: white;
+}
+.overlay-add-list-icon{
+    z-index: 99;
+    width: 55px;
+    height: 50px;
+    top: 0px;
+    right: 0px;
+    position: absolute;
+    cursor: pointer;
 }
 @media only screen and (max-width: 340px) {
     .title{

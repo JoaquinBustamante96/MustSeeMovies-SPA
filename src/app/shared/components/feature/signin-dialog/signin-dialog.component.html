@@ -1,0 +1,14 @@
+<mat-card *ngIf="showDialog" class="dialog-card mat-typography">
+  <p>
+    Sign in/Register to track everything you want to watch and everything you've seen.
+  </p>
+  <div class="button-containers">
+    <button (click)="openAuth('login')" mat-raised-button color="primary">Sign in</button>
+    <button (click)="openAuth('register')" mat-raised-button color="primary">Register</button>
+  </div>
+</mat-card>
+
+<div *ngIf="showDialog" (click)="closeDialog()" class="overlay"></div>
+<div *ngIf="showAuth" (click)="closeAuth()" class="overlay"></div>
+
+<app-auth (close)="closeAuth()" *ngIf="showAuth" [optionSelected]="optionSelected"></app-auth>

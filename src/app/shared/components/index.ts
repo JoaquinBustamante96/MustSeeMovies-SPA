@@ -11,3 +11,8 @@ export * from './feature/filter/filter.component';
 export * from './feature/filter/select-runtime/select-runtime.component';
 export * from './feature/filter/select-years/select-years.component';
 export * from './feature/image-movie/image-movie.component';
+export * from './ui/show-hide-password-icon/show-hide-password-icon.component';
+export * from './feature/login/login.component';
+export * from './feature/register/register.component';
+export * from './feature/forgot-password/forgot-password.component';
+export * from './feature/login-register/login-register.component';

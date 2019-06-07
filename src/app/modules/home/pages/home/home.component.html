@@ -1,16 +1,21 @@
 <app-toolbar (onRedirect)="scrolltop()"></app-toolbar>
 <app-main-header></app-main-header>
 
+<app-login-register class="login-register-component" >
+</app-login-register>
+
+<app-signin-dialog [open]="showSignInDialog$.asObservable()"></app-signin-dialog>
+
 <div class="content">
 
     <div id="filter-container" *appShowWithin="desktopRange">
         <app-filter (OnMoviesSearch)="searchByFilter($event)"></app-filter>
     </div>
 
-    <div class="titles-container mat-typography">
-    <h2 
-    [class.active]="optionSelected == 2"
-    class="title latest" (click)="searchLatest()">Latest</h2>
+    <div class="options-container mat-typography">
+        <h2 [class.active]="optionSelected == 'latest'" class="option" (click)="searchLatest()">Latest</h2>
+        <h2 [class.active]="optionSelected == 'watchlater'" class="option" (click)="searchList('Watch later')">Watch Later</h2>
+        <h2 [class.active]="optionSelected == 'watched'" class="option" (click)="searchList('Watched')">Watched</h2>
     </div>
 
     <ng-container *ngFor="let movie of movies$ | async; let last = last">
@@ -23,9 +28,9 @@
         </app-movie-preview-mobile>
         <div *ngIf="last" class="white-space"></div>
     </ng-container>
-    
+
     <div *ngIf="(movies$ | async)?.length == 0" class="mat-typography">
         <h2 id="noFound">No movies found</h2>
     </div>
-    
+
 </div>

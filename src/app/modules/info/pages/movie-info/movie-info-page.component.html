@@ -11,4 +11,6 @@
     </ng-container>
     <app-gallery-movies (onMovieSelected)="loadMovieInfo($event)" [id]="id.asObservable()"></app-gallery-movies>
 </div>
+<app-login-register class="login-register-component" >
+</app-login-register>
 <app-progress-spinner *appHideWithDelay="!show; delay:'400'"></app-progress-spinner>

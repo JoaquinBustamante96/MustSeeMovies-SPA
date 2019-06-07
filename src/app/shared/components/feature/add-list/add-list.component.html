@@ -1,0 +1,26 @@
+<div>
+<button (click)="openHideList()" class="watch-later-icon" mat-icon-button>
+    <mat-icon matSuffix><i class="material-icons">playlist_add</i></mat-icon>
+</button>
+
+<mat-card *ngIf="showOptions" class="options mat-typography">
+
+    <div class="option mat-body-strong ">
+        <mat-icon (click)="OnCheckboxChange('Watch later')" class="option-icon list-icon" matSuffix>
+            <i class="material-icons">list</i></mat-icon>
+        <h3 (click)="OnCheckboxChange('Watch later')" class="text">{{options[0]}}</h3>
+        <mat-checkbox [checked]="later" (change)="OnCheckboxChange('Watch later')" class="checkbox"></mat-checkbox>
+        <div (click)="OnCheckboxChange('Watch later')" class="white-space"></div>
+    </div>
+
+    <div class="option mat-body-strong">
+        <mat-icon (click)="OnCheckboxChange('Watched')" class="option-icon" matSuffix><i
+                class="material-icons">playlist_add_check</i></mat-icon>
+        <h3 (click)="OnCheckboxChange('Watched')" class="text">{{options[1]}}</h3>
+        <mat-checkbox [checked]="watched" (change)="OnCheckboxChange('Watched')" class="checkbox"></mat-checkbox>
+        <div (click)="OnCheckboxChange('Watched')" class="white-space"></div>
+    </div>
+</mat-card>
+</div>
+<div (click)="openHideList()" *ngIf="showOptions" class="overlay"></div>
+<app-signin-dialog [open]="showSignInDialog$.asObservable()"></app-signin-dialog>

@@ -8,6 +8,7 @@
       <p class="mat-body-strong">{{movie.director[0] | uppercase}}</p>
       <p class="mat-small">{{movie.country | uppercase}}, {{movie.getYear() }}</p>
     </div>
+    <app-add-list [id]="movie.id" class="add-list-icon"></app-add-list>
   </div>
 
   <mat-card-content class="info-container">

@@ -2,8 +2,8 @@
 (isInView)="onViewChange($event)"
 [options]="options"
    ></app-intersection-observer>
-<div class=" img-container mat-typography" (click)="onMovieInformation()">
-  <div class="image">
+<div class="img-container mat-typography">
+  <div (click)="onMovieInformation()" class="image">
     <img *ngIf="showImage" [src]="movie.getposterUrl() | safe " alt="image">
     <div class="overlay"></div>
   </div>
@@ -12,4 +12,5 @@
     <p class="mat-body-strong">{{movie.director[0]}}</p>
     <p class="mat-small">{{movie.country}}, {{movie.getYear()}}</p>
   </div>
+  <!-- <app-add-list [id]="movie.id" class="add-list-icon"></app-add-list> -->
   </div>

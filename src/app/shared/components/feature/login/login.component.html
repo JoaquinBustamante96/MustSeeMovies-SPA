@@ -1,0 +1,23 @@
+<form [formGroup]="loginForm" #form class="form" (ngSubmit)="onSubmit(form)" >
+
+<div class="user-pass-container">
+
+ <mat-form-field appearance="outline" [hideRequiredMarker]="true">
+   <mat-label>Email</mat-label>
+   <input matInput formControlName="user">
+   <mat-error *ngIf="isFieldValid('user')">{{errorMessage}}</mat-error>
+ </mat-form-field>
+
+ <mat-form-field appearance="outline" [hideRequiredMarker]="true">
+   <mat-label>Password</mat-label>
+   <input matInput formControlName="password" type="password" [appPasswrodVisibility]="showPassword">  
+   <mat-error *ngIf="isFieldValid('password')">{{errorMessage}}</mat-error>
+   <app-show-hide-password-icon [show]="showPassword" (showPassword)="showHidePassword($event)" class="password-icon" ></app-show-hide-password-icon>
+ </mat-form-field>
+</div>
+
+<re-captcha *ngIf="captcha" formControlName="captcha" style="margin: auto;" ></re-captcha>
+
+<button mat-raised-button color="primary" id="button-login" type="submit">Login</button>
+
+</form>

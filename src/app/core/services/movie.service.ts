@@ -9,6 +9,7 @@ import { Uris } from '@app/core/uris-api';
 import 'rxjs/add/operator/delay';
 import 'rxjs/add/operator/scan';
 import 'rxjs/add/operator/retryWhen';
+import { AuthenticationService } from './authentication.service';
 
 @Injectable({
     providedIn: 'root'
@@ -21,7 +22,7 @@ export class MovieService {
     private relatedMoviesPage$: Subject<Page<MinimumMovie>> = new Subject();
     private movieNames$: Subject<string[]> = new Subject();
 
-    constructor(private httpService: HttpService) { }
+    constructor(private httpService: HttpService, private authService: AuthenticationService) { }
 
     getMoviesPage(): Observable<Page<MinimumMovie>> {
         return this.minimumMoviesPage$.asObservable();
@@ -52,8 +53,8 @@ export class MovieService {
                     }, 0).delay(1000)
             })
             .subscribe(
-                response => {
-                    this.minimumMoviesPage$.next(new MinimumMoviePage().deserialize(response));
+                moviesPage => {
+                    this.minimumMoviesPage$.next(new MinimumMoviePage().deserialize(moviesPage));
                 }
             )
     }
@@ -75,7 +76,7 @@ export class MovieService {
                     }, 0).delay(1000)
             })
             .subscribe(
-                response => this.minimumMoviesPage$.next(new MinimumMoviePage().deserialize(response))
+                moviesPage => this.minimumMoviesPage$.next(new MinimumMoviePage().deserialize(moviesPage))
             )
     }
 
@@ -97,7 +98,18 @@ export class MovieService {
                     }, 0).delay(1000)
             })
             .subscribe(
-                response => this.minimumMoviesPage$.next(new MinimumMoviePage().deserialize(response))
+                moviesPage => this.minimumMoviesPage$.next(new MinimumMoviePage().deserialize(moviesPage))
+            )
+    }
+
+    setPageOfList(page, size, list) {
+        this.httpService
+            .param('page', page)
+            .param('size', size)
+            .param('list', list)
+            .get(Uris.movie+Uris.list)
+            .subscribe(
+                moviesPage => this.minimumMoviesPage$.next(new MinimumMoviePage().deserialize(moviesPage))
             )
     }
 

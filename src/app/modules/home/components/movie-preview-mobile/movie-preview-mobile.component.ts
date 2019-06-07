@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { MinimumMovie } from '@app/core/models';
+import { Observable, Subject } from 'rxjs';
 
 @Component({
   selector: 'app-movie-preview-mobile',

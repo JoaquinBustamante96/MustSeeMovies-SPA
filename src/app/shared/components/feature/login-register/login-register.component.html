@@ -1,0 +1,12 @@
+<div class="login-register mat-typography clickeable">
+  <p *ngIf="!hasSignIn">
+    <span (click)="openAuth('login')"> login </span>| <span (click)="openAuth('register')">
+      register</span>
+  </p>
+  <p *ngIf="hasSignIn" class="exit" (click)="logout()"> Sign Out <mat-icon matSuffix>
+      <i class="material-icons exit-icon">exit_to_app</i></mat-icon>
+  </p>
+</div>
+<div *ngIf="showAuth" (click)="closeAuth()" class="overlay"></div>
+
+<app-auth (close)="closeAuth()" *ngIf="showAuth" [optionSelected]="optionSelected"></app-auth>

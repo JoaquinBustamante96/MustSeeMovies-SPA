@@ -1,0 +1,35 @@
+<ng-container *ngIf="optionSelected">
+
+  <mat-card *ngIf="error" class="error-card mat-typography">{{errorMessage}}</mat-card>
+  <mat-card class="auth mat-typography">
+
+    <div *ngIf="loading" class="layer">
+      <mat-spinner class="spiner"></mat-spinner>
+    </div>
+
+    <button *ngIf="optionSelected =='forgot'" (click)="openAuth('login')" id="goback-button" mat-icon-button>
+      <mat-icon matSuffix>
+        <i class="material-icons">arrow_back</i></mat-icon>
+    </button>
+
+    <mat-card-title class="title  mat-typography">
+      <ng-container *ngIf="optionSelected!='forgot'">
+        <span class="option" [class.selected]="optionSelected == 'login'" (click)="openAuth('login')">Sign In</span>
+        |
+        <span class="option" [class.selected]="optionSelected == 'register'"
+          (click)="openAuth('register')">Register</span>
+      </ng-container>
+      <span *ngIf="optionSelected =='forgot'" [class.selected]="optionSelected == 'forgot'">Password assistance</span>
+    </mat-card-title>
+    <p *ngIf="optionSelected == 'forgot'" id="email-label">Enter the email address associated with your account.</p>
+
+    <app-login [captcha]="captcha" (login)="onLogin($event)" *ngIf="optionSelected == 'login'"></app-login>
+    <app-register [captcha]="captcha" (registerForm)="onRegister($event)" *ngIf="optionSelected == 'register'">
+    </app-register>
+    <app-forgot-password [captcha]="captcha" (forgotForm)="onForgotPassword($event)" *ngIf="optionSelected == 'forgot'">
+    </app-forgot-password>
+    <p (click)="openAuth('forgot')" *ngIf="optionSelected == 'login'" class="mat-typography forgot-password clickeable">
+      Forgot your
+      password?</p>
+  </mat-card>
+</ng-container>

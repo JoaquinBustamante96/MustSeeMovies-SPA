@@ -1,0 +1,21 @@
+.dialog-card{
+    position: fixed;
+    top: 25%;
+    left: calc(50% - 150px);
+    z-index: 999;
+    width: 300px;
+    height: auto;
+}
+.button-containers{
+    display: flex;
+    justify-content: space-around;
+}
+.overlay{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: 998;
+    background-color: rgba(0,0,0,0.5);
+    width: 100vw;
+    height: 100vh;
+}

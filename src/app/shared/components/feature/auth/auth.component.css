@@ -1,0 +1,83 @@
+.auth,.error-card{
+    position: fixed;
+    width: 400px;
+    left: calc(50% - 200px);
+}
+.auth{
+    height: auto;
+    top: 18%;
+    z-index: 999;
+    text-align: center;
+}
+.error-card{
+    top: 9%;
+    z-index: 999;
+    text-align: center;
+    color: #f44336;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+}
+.title{
+    margin-top: 10px;
+}
+.option{
+    color: rgba(255, 255, 255, 0.5);
+}
+.option:hover,.forgot-password:hover,.selected{
+    color:white;
+    text-decoration: underline;
+}
+.forgot-password{
+    position: absolute;
+    bottom: 8px;
+    right: 10px;
+    cursor: pointer;
+}
+#goback-button{
+    position: absolute;
+    left: 20px;
+    top:15px;
+    cursor: pointer;
+}
+#email-label{
+    text-align: left;
+    padding: 0 10px 0 12px;
+}
+.layer {
+    background-color: rgba(0, 0, 0, 0.705);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    width: 100%;
+    height: 100%;
+}
+.overlay{
+    z-index: 998;
+    width: 100vw;
+    height: 100vh;
+    top: 0px;
+    left: 0px;
+    position: fixed;
+    background-color: rgba(0,0,0,0.5);
+    cursor: pointer;
+}
+.spiner{
+    z-index: 1001;
+    margin: auto;
+    top: 35%;
+}
+/deep/.mat-progress-spinner circle, .mat-spinner circle {
+    stroke: white !important;
+    }
+
+@media only screen and (max-width:716px) {
+ .auth,.error-card{
+     left:0px;
+     right: 0px;
+     margin: auto;
+     max-width: 85vw;
+ }
+
+ 
+}

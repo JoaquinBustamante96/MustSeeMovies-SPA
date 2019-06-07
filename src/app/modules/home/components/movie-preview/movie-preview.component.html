@@ -1,12 +1,14 @@
 <div *ngIf="movie" class="article mat-typography">
-  <app-image-movie [movie]="movie" (OnMovieInformation)="onMovieInformation()"></app-image-movie>
-    <div class="info-container">
-
-        <app-share-movie-buttons id="share-buttons" [movie]="movie" [show]="5"></app-share-movie-buttons>
-        
-      <p class="info-text mat-body-strong block-with-text">
-        {{movie.storyline | truncateTextPipe: 245}}
-      </p>
-      <p class="more-info mat-body-strong" (click)="onMovieInformation()">MORE INFO<i class="material-icons right-arrow">keyboard_arrow_right</i></p>
-    </div>
+  <app-share-movie-buttons id="share-buttons" [movie]="movie" [show]="5"></app-share-movie-buttons>
+  <app-image-movie [movie]="movie" (OnMovieInformation)="onMovieInformation()">
+  </app-image-movie>
+  <div class="overlay-add-list-icon"></div>
+  <div class="info-container">
+    
+    <p class="info-text mat-body-strong block-with-text">
+      {{movie.storyline | truncateTextPipe: 245}}
+    </p>
+    <p class="more-info mat-body-strong" (click)="onMovieInformation()">MORE INFO<i class="material-icons right-arrow">keyboard_arrow_right</i></p>
   </div>
+  <app-add-list [id]="movie.id" class="add-list-icon"></app-add-list>
+</div>

@@ -23,7 +23,7 @@ import { Ng5SliderModule } from 'ng5-slider';
 
 import { SafePipe, TruncateTextPipe, SplitArrayPipe } from './pipes/index';
 
-import {AutosizeModule} from "ngx-autosize";
+import { AutosizeModule } from "ngx-autosize";
 
 import { ShareButtonsModule } from '@ngx-share/buttons';
 
@@ -41,12 +41,29 @@ import {
   SelectRuntimeComponent,
   SelectYearsComponent,
   ImageMovieComponent,
+  LoginComponent,
+  RegisterComponent,
+  LoginRegisterComponent,
+  ForgotPasswordComponent
 } from './components/index';
 
 import { ShowWithinDirective, OnloadDirective } from './directives/index';
 import { hideWithDelayDirective } from './directives/hide-with-delay.directive';
+import { AddListComponent } from './components/feature/add-list/add-list.component';
+import { ShowHidePasswordIconComponent } from './components/ui/show-hide-password-icon/show-hide-password-icon.component';
+import { PasswrodVisibilityDirective } from './directives/passwrod-visibility.directive';
+import { RecaptchaModule, RECAPTCHA_SETTINGS, RecaptchaSettings } from 'ng-recaptcha';
+import { RecaptchaFormsModule } from 'ng-recaptcha/forms';
+import { SigninDialogComponent } from './components/feature/signin-dialog/signin-dialog.component';
+import { AuthComponent } from './components/feature/auth/auth.component';
 
 @NgModule({
+  providers: [
+    {
+      provide: RECAPTCHA_SETTINGS,
+      useValue: { siteKey: '6LcQf6UUAAAAAD0zbt8Mf7hpwgcWnz0K8dg7p49i', theme: 'dark' } as RecaptchaSettings,
+    },
+  ],
   declarations: [
     MatFormFieldOptionsComponent,
     TruncateTextPipe,
@@ -66,7 +83,16 @@ import { hideWithDelayDirective } from './directives/hide-with-delay.directive';
     SelectRuntimeComponent,
     SelectYearsComponent,
     ImageMovieComponent,
-    SplitArrayPipe
+    SplitArrayPipe,
+    AddListComponent,
+    ShowHidePasswordIconComponent,
+    PasswrodVisibilityDirective,
+    SigninDialogComponent,
+    LoginComponent,
+    RegisterComponent,
+    LoginRegisterComponent,
+    ForgotPasswordComponent,
+    AuthComponent,
   ],
   imports: [
     CommonModule,
@@ -91,7 +117,9 @@ import { hideWithDelayDirective } from './directives/hide-with-delay.directive';
     Ng5SliderModule,
     MatDialogModule,
     ShareButtonsModule,
-    AutosizeModule
+    AutosizeModule,
+    RecaptchaModule.forRoot(),
+    RecaptchaFormsModule
   ],
   exports: [
     MatRadioModule,
@@ -135,7 +163,17 @@ import { hideWithDelayDirective } from './directives/hide-with-delay.directive';
     SelectYearsComponent,
     ImageMovieComponent,
     SplitArrayPipe,
-    AutosizeModule
+    AutosizeModule,
+    AddListComponent,
+    ShowHidePasswordIconComponent,
+    PasswrodVisibilityDirective,
+    RecaptchaModule,
+    RecaptchaFormsModule,
+    SigninDialogComponent,
+    LoginComponent,
+    RegisterComponent,
+    LoginRegisterComponent,
+    ForgotPasswordComponent,
   ],
 })
 export class SharedModule { }

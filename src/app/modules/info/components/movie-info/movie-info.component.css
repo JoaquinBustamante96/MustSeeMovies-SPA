@@ -29,7 +29,13 @@
     word-break: normal;
     text-align: start;
 }
-
+.add-list-icon{
+    position: absolute;
+    z-index: 100;
+    color: white;
+    top: -4px;
+    right: -45px;
+}
 .movie-info-container img{
     display: block;
     width: 400px;

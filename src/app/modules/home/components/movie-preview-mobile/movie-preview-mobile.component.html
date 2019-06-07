@@ -3,14 +3,15 @@
 
 <mat-card *ngIf="movie" class="card mat-typography">
 
-  <div class="image-container" (click)="onMovieInformation()" mat-card-image>
-    <img *ngIf="showImage" class="poster" [src]="movie.getposterUrl() | safe">
-    <div class="overlay"></div>
+  <div  class="image-container" mat-card-image>
+    <img  *ngIf="showImage" class="poster" [src]="movie.getposterUrl() | safe">
+    <div (click)="onMovieInformation()" class="overlay"></div>
     <div class="title">
       <h2>{{movie.name[0] | uppercase }}</h2>
       <p class="mat-body-strong">{{movie.director[0] | uppercase}}</p>
       <p class="mat-small">{{movie.country | uppercase}}, {{movie.getYear()}}</p>
     </div>
+ <app-add-list [id]="movie.id" class="add-list-icon"></app-add-list>
   </div>
 
   <mat-card-content class="info-container">

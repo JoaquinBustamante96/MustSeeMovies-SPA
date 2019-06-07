@@ -12,7 +12,7 @@ export class ShareMovieButtonsComponent implements OnInit {
   @Input() movie: MinimumMovie;
   @Input() show: string;
   theme = "circles-dark";
-  include = ['pinterest', 'tumblr', 'twitter', 'whatsapp', 'facebook'];
+  include = ['facebook','tumblr','pinterest', 'twitter', 'whatsapp'];
   size = "-7";
   url: string;
   title: string;
@@ -26,7 +26,6 @@ export class ShareMovieButtonsComponent implements OnInit {
   ngOnInit() {
     this.url = `https://moviesmustsee.com${UrisModules.movie}/${this.movie.id}`;
     this.title = this.movie.name[0];
-    this.description = `${this.movie.name[0]}: ${this.movie.storyline.substring(0, 250)}...`;
     this.image = this.movie.getposterUrl();
   }
 

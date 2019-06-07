@@ -1,0 +1,27 @@
+.login-register{
+    position: fixed;
+    top: 60px;
+    right: 40px;
+    z-index: 860;
+    color: white;
+    font-size: 16px;
+}
+
+.overlay{
+    z-index: 998;
+    width: 100vw;
+    height: 100vh;
+    top: 0px;
+    left: 0px;
+    position: fixed;
+    background-color: rgba(0,0,0,0.5);
+    cursor: pointer;
+}
+.exit-icon{
+    vertical-align: middle;
+}
+@media only screen and (max-width:716px) {
+    .login-register{
+        right: 20px;
+    }
+}

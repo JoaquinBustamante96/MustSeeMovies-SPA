@@ -4,24 +4,38 @@
     margin: auto;
 }
 .search-box{
-    z-index: 9999;
+    z-index: 999;
     position: fixed;
     top: 0px;
     right: 50px;
     width: 170px;
 }
-.titles-container{
+.login-register{
+    position: fixed;
+    top: 60px;
+    right: 40px;
+    z-index: 700;
+    color: white
+}
+.clickeable:hover{
+    cursor: pointer;
+}
+.options-container{
     color: grey;
     display: flex;
-    width: 70px;
+    width: 300px;
     margin-left: 22%;
 }
-.title{
+.options-container :nth-child(2),
+.options-container :nth-child(3){
+    margin-left: 15px;
+}
+.option{
     font-size: 18px;
     margin-bottom: 0px;
     cursor: pointer;
 }
-.title:hover,.active{
+.option:hover,.active{
     color: white;
     text-decoration: underline; 
 }
@@ -38,6 +52,7 @@
    position: absolute;
    width: 100vw;
    top: calc(80vh + 80px);
+   z-index: 701;
 }
 .appfilter{
     margin-bottom: 200px;
@@ -50,19 +65,29 @@
     font-size: 30px;
     text-align: center;
 }
+.overlay{
+    z-index: 998;
+    width: 100vw;
+    height: 100vh;
+    top: 0px;
+    left: 0px;
+    position: fixed;
+    background-color: rgba(0,0,0,0.5);
+    cursor: pointer;
+}
 @media only screen and (max-width: 1200px) {
-    .titles-container{
+    .options-container{
         margin-left: calc(50% - 330px);
     }
 } 
 @media only screen and (max-width: 716px) {
-    .titles-container{
+    .options-container{
         margin-bottom: 8px;
         margin-left: calc(50% - 172px);
     }
 } 
 @media only screen and (max-width: 340px) {
-    .titles-container{
+    .options-container{
         margin-bottom: 8px;
         margin-left: calc(50% - 152px);
     }

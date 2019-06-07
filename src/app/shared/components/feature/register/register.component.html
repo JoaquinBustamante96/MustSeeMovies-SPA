@@ -1,0 +1,31 @@
+<form [formGroup]="registerForm" class="form" (ngSubmit)="onSubmit()">
+
+  <div class="user-pass-container">
+
+    <mat-form-field appearance="outline" [hideRequiredMarker]="true">
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="email">
+      <mat-error *ngIf="isFieldValid('email')">{{getErrorMessage('email')}}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field formGroupName="passwords" appearance="outline" [hideRequiredMarker]="true">
+      <mat-label>Password</mat-label>
+      <input matInput formControlName="password" type="password" [appPasswrodVisibility]="showPassword">
+      <mat-error *ngIf="isFieldValid('password')">{{getErrorMessage('password')}}</mat-error>
+      <app-show-hide-password-icon [show]="showPassword" (showPassword)="showHidePassword($event)"
+        class="password-icon-1"></app-show-hide-password-icon>
+    </mat-form-field>
+
+    <mat-form-field formGroupName="passwords" appearance="outline" [hideRequiredMarker]="true">
+      <mat-label>Re-enter password</mat-label>
+      <input matInput formControlName="confirmPassword" type="password" [errorStateMatcher]="matcher"
+        [appPasswrodVisibility]="showPassword">
+      <mat-error *ngIf="isFieldValid('confirmPassword')">{{getErrorMessage('confirmPassword')}}</mat-error>
+      <app-show-hide-password-icon [show]="showPassword" (showPassword)="showHidePassword($event)"
+        class="password-icon-2"></app-show-hide-password-icon>
+    </mat-form-field>
+  </div>
+  <re-captcha *ngIf="captcha" formControlName="captcha" style="margin: auto;"></re-captcha>
+  <button mat-raised-button color="primary" id="button-login" type="submit">Register</button>
+
+</form>

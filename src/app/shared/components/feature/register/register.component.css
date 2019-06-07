@@ -1,0 +1,32 @@
+.form{
+    margin: auto;
+    width:auto;
+    max-width: 400px;
+    height:85%;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+#button-login{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.password-icon-1{
+    position: absolute;
+    bottom: 10px;
+    width: 24px;
+    right: -2px;
+    cursor: pointer;
+}
+.password-icon-2{
+    position: absolute;
+    bottom: 10px;
+    width: 24px;
+    right: 0px;
+    cursor: pointer;
+}
+.user-pass-container{
+    display: flex;
+    flex-direction: column;
+}

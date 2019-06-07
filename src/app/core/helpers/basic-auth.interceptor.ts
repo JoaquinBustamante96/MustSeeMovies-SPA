@@ -15,14 +15,15 @@ export class BasicAuthInterceptor implements HttpInterceptor {
     }
 
     addAuthenticationToken(request) {
-        const accessToken = this.auth.getAccessToken();
-        if (!accessToken) {
+
+        const basicAuth = this.auth.getBasicAuth();
+        if (!basicAuth) {
             return request;
         }
 
         return request.clone({
             setHeaders: {
-                Authorization: `Basic ${this.auth.getAccessToken()}`
+                Authorization: basicAuth
             }
         });
     }
