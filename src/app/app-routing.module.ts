@@ -3,15 +3,15 @@ import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: '', loadChildren: './modules/home/home.module#HomeModule'
+    path: '', loadChildren: () => import('./modules/home/home.module').then(m => m.HomeModule)
   },
   {
-    path:'movie/:id',loadChildren:'./modules/info/info-page.module#InfoPageModule'
+    path:'movie/:id',loadChildren:() => import('./modules/info/info-page.module').then(m => m.InfoPageModule)
   },
   {
-    path: 'admin', loadChildren: './modules/admin/admin.module#AdminModule'
+    path: 'admin', loadChildren: () => import('./modules/admin/admin.module').then(m => m.AdminModule)
   },{
-    path:'forgot-password/:token', loadChildren: './modules/forgot-password/forgot-password.module#ForgotPasswordModule'
+    path:'forgot-password/:token', loadChildren: () => import('./modules/forgot-password/forgot-password.module').then(m => m.ForgotPasswordModule)
   }
   ,
   {
