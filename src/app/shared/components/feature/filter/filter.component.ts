@@ -17,7 +17,7 @@ export class FilterComponent implements OnInit {
   filterForm: FormGroup;
   color = true;
   blackWhite = true;
-  allYears = true;
+  allYears = false;
 
   minRuntime = 0;
   maxRuntime = 600;

@@ -1,7 +1,7 @@
 .dialog-card{
     position: fixed;
     top: 25%;
-    left: calc(50% - 150px);
+    left: calc(50% - 166px);
     z-index: 999;
     width: 300px;
     height: auto;
@@ -18,4 +18,11 @@
     background-color: rgba(0,0,0,0.5);
     width: 100vw;
     height: 100vh;
+}
+
+@media only screen and (max-width:360px) {
+    .dialog-card{
+        width: 280px;
+        left: calc(50% - 156px);
+    }
 }

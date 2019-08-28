@@ -9,7 +9,7 @@ import { Subject } from 'rxjs';
 })
 export class IntersectionObserverComponent implements OnInit, OnDestroy {
 
-  @ViewChild('intersection', { read: ElementRef }) intersection: ElementRef;
+  @ViewChild('intersection', { read: ElementRef, static: true }) intersection: ElementRef;
   @Output() entries = new EventEmitter<Observable<IntersectionObserverEntry[]>>();
   @Output() isInView = new EventEmitter<boolean>();
   @Input() options: IntersectionObserverInit;
@@ -26,7 +26,7 @@ export class IntersectionObserverComponent implements OnInit, OnDestroy {
         threshold: 0
       };
     }
-    
+
     this.observer = new IntersectionObserver((entries) => {
       this.entries$.next(entries);
       if (entries[0].intersectionRatio >= 0.4) {
@@ -43,7 +43,7 @@ export class IntersectionObserverComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    if(this.observer){
+    if (this.observer) {
       this.observer.disconnect();
     }
   }

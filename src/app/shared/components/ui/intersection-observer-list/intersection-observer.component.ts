@@ -10,7 +10,7 @@ export class IntersectionObserverListComponent implements OnInit, OnDestroy {
 
   @Input() list: Observable<any>;
   @Output() onIntersection = new EventEmitter();
-  @ViewChild('intersection', { read: ElementRef }) intersection: ElementRef;
+  @ViewChild('intersection', { read: ElementRef, static: true }) intersection: ElementRef;
   observer: IntersectionObserver;
   emit = true;
 
