@@ -1,2 +1,2 @@
 export * from './validators';
-export * from '../core/models/static-data.model';
+export * from './models/static-data.model';

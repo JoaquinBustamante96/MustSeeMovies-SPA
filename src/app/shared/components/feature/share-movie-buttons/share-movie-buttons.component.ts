@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { MinimumMovie } from '@app/core/models';
+import { MinimumMovie } from '@app/shared/models';
 import { UrisModules } from '@app/core/routed-modules-uris';
 
 @Component({

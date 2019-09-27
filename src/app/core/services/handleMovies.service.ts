@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Page, MinimumMovie } from '@app/core/models';
-import { Filter } from '../models/filter.model';
+import { Page, MinimumMovie } from '@app/shared/models';
+import { Filter } from '../../shared/models/filter.model';
 import { SearchType } from '../../modules/home/searchType.model';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { MovieService } from './movie.service';

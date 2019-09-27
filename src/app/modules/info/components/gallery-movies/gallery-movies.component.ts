@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, OnDestroy, Output, EventEmitter } from '@angular/core';
-import { MinimumMovie } from '@app/core/models';
+import { MinimumMovie } from '@app/shared/models';
 import { MovieService } from '@app/core/services';
 import { Subscription, Observable } from 'rxjs';
 import { Router } from '@angular/router';

@@ -3,7 +3,7 @@ import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { AuthenticationService } from '@app/core/services';
 import { Router } from '@angular/router';
 import { UrisModules } from '@app/core/routed-modules-uris';
-import { Token } from '@app/core/models/token.mode';
+import { Token } from '@app/shared/models/token.mode';
 import { snackbar } from '@app/core/services/snackbar.service';
 
 @Component({

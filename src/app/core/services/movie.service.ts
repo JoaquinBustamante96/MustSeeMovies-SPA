@@ -1,10 +1,10 @@
 import { Injectable } from "@angular/core";
 import { HttpService } from "@app/core/services/http.service";
-import { Filter } from '../models/filter.model';
-import { MinimumMovie } from '@app/core/models';
-import { Page, Movie } from '@app/core/models';
+import { Filter } from '../../shared/models/filter.model';
+import { MinimumMovie } from '@app/shared/models';
+import { Page, Movie } from '@app/shared/models';
 import { Observable, Subject } from 'rxjs';
-import { MinimumMoviePage } from '@app/core/models';
+import { MinimumMoviePage } from '@app/shared/models';
 import { Uris } from '@app/core/uris-api';
 import 'rxjs/add/operator/delay';
 import 'rxjs/add/operator/scan';

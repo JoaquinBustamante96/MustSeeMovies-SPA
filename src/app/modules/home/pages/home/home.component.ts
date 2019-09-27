@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { MinimumMovie } from '@app/core/models';
-import { Filter } from '../../../../core/models/filter.model';
+import { MinimumMovie } from '@app/shared/models';
+import { Filter } from '../../../../shared/models/filter.model';
 import { Router, NavigationEnd } from '@angular/router';
 import { Subscription, Observable, Subject } from 'rxjs';
 import { HandleMoviesService } from '../../../../core/services/handleMovies.service';
@@ -62,13 +62,6 @@ export class HomePageComponent implements OnInit, OnDestroy {
     this.searchTypeSubscription.unsubscribe();
   }
 
-  // onSearch(searchType: SearchType) {
-  //   switch (searchType){
-  //     case SearchType.byFilter
-  //     return;
-  //     case SearchType.
-  //   }
-  // }
 
   searchLatest() {
     this.handleMoviesService.searchLatest();
