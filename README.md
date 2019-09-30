@@ -1,6 +1,5 @@
 # Must See Movies
-
-This project is a movies recommendation app built in angular.
+A movies recommendation app built in angular.
 # Architecture 
 
 ![alt text](https://github.com/JoaquinBustamante96/MustSeeMovies-SPA/blob/develop/docs/app.png)
