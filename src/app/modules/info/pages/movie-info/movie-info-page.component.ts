@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy, ViewChild, ElementRef } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { MovieService } from '@app/core/services';
-import { Movie } from '@app/core/models';
+import { Movie } from '@app/shared/models';
 import { Subscription, BehaviorSubject } from 'rxjs';
 import { filter } from 'rxjs/operators';
 import { SEOService } from '@app/core/services/seo.service';

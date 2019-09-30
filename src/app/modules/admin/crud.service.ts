@@ -5,9 +5,9 @@ import { MatSnackBar } from '@angular/material';
 import { combineLatest } from 'rxjs';
 import { first } from 'rxjs/operators';
 import { HttpService } from "@app/core/services";
-import { Movie, MinimumMovie } from "@app/core/models";
+import { Movie, MinimumMovie } from "@app/shared/models";
 import { Uris } from '@app/core/uris-api';
-import { MoviePage } from '@app/core/models/MoviePage.model';
+import { MoviePage } from '@app/shared/models/MoviePage.model';
 
 @Injectable({
     providedIn: 'root'

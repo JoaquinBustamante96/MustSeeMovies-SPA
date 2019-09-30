@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { Filter } from '@app/core/models';
+import { Filter } from '@app/shared/models';
 import { HandleMoviesService } from '@app/core/services';
 import { Router } from '@angular/router';
 import { Animations } from '@app/shared/animations';

@@ -1,6 +1,6 @@
 import { Meta } from '@angular/platform-browser';
 import { Injectable } from '@angular/core';
-import { MinimumMovie } from '../models';
+import { MinimumMovie } from '../../shared/models';
 
 @Injectable({
     providedIn: 'root'

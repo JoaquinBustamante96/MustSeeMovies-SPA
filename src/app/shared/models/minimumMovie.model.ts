@@ -1,5 +1,5 @@
 import { Deserializable } from './deserializable.model';
-import { Uris } from '../uris-api';
+import { Uris } from '../../core/uris-api';
 
 export class MinimumMovie implements Deserializable {
     id: string;

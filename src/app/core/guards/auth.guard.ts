@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
-import { Token } from '../models/token.mode';
+import { Token } from '../../shared/models/token.mode';
 
 
 @Injectable({

@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
 import { filter } from 'rxjs/operators';
-import { Movie } from '@app/core/models';
+import { Movie } from '@app/shared/models';
 
 @Component({
   selector: 'app-movie-info-mobile',

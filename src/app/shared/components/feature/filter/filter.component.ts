@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { StaticData } from '@app/shared';
 import { Subject } from 'rxjs';
 import { MatCheckbox } from '@angular/material';
-import { Filter } from '@app/core/models';
+import { Filter } from '@app/shared/models';
 
 
 @Component({

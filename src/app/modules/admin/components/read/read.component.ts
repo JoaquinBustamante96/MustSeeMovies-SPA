@@ -1,6 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { CrudService } from '@app/modules/admin/crud.service';
-import { Movie } from '@app/core/models';
+import { Movie } from '@app/shared/models';
 import { BehaviorSubject, combineLatest } from 'rxjs';
 import { MatSnackBar, MatDialog } from '@angular/material';
 import { WarningDialogComponent } from '../warning-dialog/warning-dialog.component';

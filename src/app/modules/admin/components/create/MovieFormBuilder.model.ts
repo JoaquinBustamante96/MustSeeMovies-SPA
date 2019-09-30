@@ -1,5 +1,5 @@
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Movie } from '@app/core/models';
+import { Movie } from '@app/shared/models';
 import { imgSizeValidatorValidator } from '@app/shared/validators/imgSizeValidator.directive';
 
 export class MovieFormBuilder {

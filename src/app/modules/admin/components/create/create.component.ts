@@ -4,8 +4,8 @@ import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { first } from 'rxjs/operators';
 
 import { CrudService } from '@app/modules/admin/crud.service';
-import { Movie } from '@app/core/models';
-import { StaticData } from '@app/core/models/static-data.model';
+import { Movie } from '@app/shared/models';
+import { StaticData } from '@app/shared/models/static-data.model';
 import { MovieFormBuilder } from '@app/modules/admin/components/create/MovieFormBuilder.model';
 
 
